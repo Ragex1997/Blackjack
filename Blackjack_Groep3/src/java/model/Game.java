@@ -22,6 +22,9 @@ public class Game {
         this.users = new ArrayList<User>(users);
     }
 
+    /**
+     * De kaarten worden verdeeld onder de dealer en de spelers
+     */
     public void cardDistribution() {
         //Kaarten worden verdeeld onder alle spelers en de dealer 
         //Ze krijgen er elk 2
@@ -34,10 +37,17 @@ public class Game {
         }
     }
 
+    /**
+     * De speler trekt een kaart van het Deck
+     * @param user 
+     */
     public void playerHit(User user) {
         user.addCard(deck.drawCard());
     }
 
+    /**
+     * De dealer trekt een kaart van het Deck
+     */
     public void dealerHit() {
         dealer.addCard(deck.drawCard());
     }
@@ -51,3 +61,4 @@ public class Game {
     }
 
 }
+

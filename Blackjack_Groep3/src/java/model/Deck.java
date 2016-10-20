@@ -33,11 +33,17 @@ public class Deck {
             }
         }
     }
-    
+    /**
+     * Het Deck wordt door elkaar geschudt
+     */
     public void shuffleDeck(){
         Collections.shuffle(this.cards);
     }
-    
+    /**
+     * Geeft de eerste kaart terug van het Deck(cards)
+     * en verwijderd deze
+     * @return 
+     */
     public Card drawCard(){    
         Card card = this.cards.get(0);
         removeCard(card);
