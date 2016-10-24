@@ -17,6 +17,8 @@ public class Card {
     private final Suit suit;
     private final Value value;
     private Boolean visable;
+    private String cardImage;
+    private String backImage;
 
     public Card(Suit suit, Value value) {
         this.suit = suit;
@@ -34,5 +36,23 @@ public class Card {
     public Boolean getVisable() {
         return visable;
     }
+
+    public String getCardImage() {
+        return cardImage;
+    }
+
+    public void setCardImage(String cardImage) {
+        this.cardImage = cardImage;
+    }
+
+    public String getBackImage() {
+        return backImage;
+    }
+
+    public void setBackImage(String backImage) {
+        this.backImage = backImage;
+    }
+    
+    
     
 }

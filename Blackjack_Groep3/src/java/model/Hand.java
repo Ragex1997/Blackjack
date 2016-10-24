@@ -41,6 +41,24 @@ public class Hand {
     public List<Card> getCards() {
         return cards;
     }
+    
+    public int getValue(){
+        int waarde = 0;
+        boolean hasAce = false;
+        
+        for(Card c : cards){
+            if(c.getValue().equals(ACE)){
+                hasAce = true;
+            }
+            waarde =+ c.getValue().getNumVal();
+        }
+        
+        if(waarde > 21 && hasAce == true){
+            waarde =- 10;
+        }
+        
+        return waarde;
+    }
 
 //    private int calculatePoints() {
 //        int points = 0;
