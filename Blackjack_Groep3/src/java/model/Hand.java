@@ -60,40 +60,36 @@ public class Hand {
         return waarde;
     }
 
-//    private int calculatePoints() {
-//        int points = 0;
-//        int hasAce = 0;
-//        for (Card c : cards) {
-//            if(c.getValue().equals(ACE)){             
-//                if(hasAce == 1){
-//                    if(hasAce == 2){
-//                        hasAce = 3;
-//                    }
-//                    hasAce = 2;
-//                }
-//                hasAce = 1;
-//            }
-//            points =+ getValueFromCard(c.getValue());
-//        }
-//        switch (hasAce){
-//            case 0:
-//                return points;
-//            case 1:
-//                if(points > 11){
-//                    points =+ 1;
-//                }else{
-//                    points =+10;
-//                }
-//                return points;
-//            case 2:
-//                if()
-//                
-//        }
-//        
-//    }
-
+    /*    private int calculatePoints() {
+       int points = 0;
+       int hasAce = 0;
+      for (Card c : cards) {
+           if(c.getValue().equals(ACE)){             
+               if(hasAce == 1){
+                    if(hasAce == 2){
+                       hasAce = 3;
+                   }
+                    hasAce = 2;
+              }
+              hasAce = 1;
+           }
+           points =+ getValueFromCard(c.getValue());        }
+       switch (hasAce){
+            case 0:
+               return points;
+           case 1:
+               if(points > 11){                    points =+ 1;
+               }else{
+                    points =+10;
+              }
+               return points;
+           case 2:
+                if()         
+        }     
+    }
+     */
     private int getValueFromCard(Value value) {
-        
+
         return value.getNumVal();
     }
 

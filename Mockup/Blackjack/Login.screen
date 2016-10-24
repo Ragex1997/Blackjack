@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" width="505" height="393" text="Browser&#xA;http://blackjack/Login" measuredWidth="505" measuredHeight="393">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="2" y="52" width="505" height="341" measuredWidth="505" measuredHeight="341" src="assets/AchtergrondStart.png"/>
+  <widgets xsi:type="model:Button" id="5" x="212" y="280" width="58" text="Login" measuredWidth="58" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="7" x="24" y="80" width="57" height="53" measuredWidth="57" measuredHeight="53" src="assets/HelpImage.png"/>
+  <widgets xsi:type="model:TextField" id="8" x="188" y="224" text="Email/Gebruikersnaam" measuredWidth="131" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:TextField" id="9" x="188" y="246" width="78" text="****************************" measuredWidth="78" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="10" x="144" y="224" text="Email:" measuredWidth="38" measuredHeight="23" foreground="#ffffff">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="11" x="123" y="246" text="Passwoord:" measuredWidth="66" measuredHeight="23" foreground="#ffffff">
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>

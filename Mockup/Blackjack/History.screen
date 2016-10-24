@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" width="505" height="393" text="Browser&#xA;http://blackjack/History" measuredWidth="505" measuredHeight="393">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="2" y="52" width="505" height="341" measuredWidth="505" measuredHeight="341" src="assets/AchtergrondStart.png"/>
+  <widgets xsi:type="model:Button" id="3" x="209" y="296" width="58" text="Home" measuredWidth="58" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="4" x="24" y="80" width="57" height="53" measuredWidth="57" measuredHeight="53" src="assets/HelpImage.png"/>
+  <widgets xsi:type="model:Label" id="5" x="200" y="93" text="History" measuredWidth="81" measuredHeight="40" foreground="#ffffff">
+    <font size="24px"/>
+  </widgets>
+  <widgets xsi:type="model:Table" id="6" x="48" y="149" width="377" height="92" text="Date,Winner,Balance,Players, Actions&#xA;24/10/16,Dealer,8(Oneindig),1,[View]&#xA;10/10/16,Peter,64,5,[View]&#xA;15/07/16,Henri,21,3,[View]&#xA;" measuredWidth="377" measuredHeight="92" alternative="#eeeeee">
+    <font/>
+    <items x="270" y="24" width="25" height="15" text="View"/>
+    <items x="270" y="45" width="25" height="15" text="View"/>
+    <items x="270" y="66" width="25" height="15" text="View"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
