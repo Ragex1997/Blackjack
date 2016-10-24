@@ -52,12 +52,12 @@ public class Game {
         dealer.addCard(deck.drawCard());
     }
 
-    public void playerStand(User user) {
-        
+    public int playerStand(User user) {
+        return user.getHand().getValue();
     }
 
-    public void dealerStand() {
-        
+    public int dealerStand() {
+        return this.dealer.getHand().getValue();
     }
 
 }

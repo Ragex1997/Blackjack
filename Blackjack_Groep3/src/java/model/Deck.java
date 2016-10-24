@@ -25,10 +25,19 @@ public class Deck {
     }
     
     public void fillDeck(){
+        
+        String suit;
+        String value;
+        String image;
+        
         for(int i = 0 ; i < 52 ; i++){
             for(Suit s : Suit.values()){
+                suit = s.getSuit();
+               
                 for(Value v : Value.values()){
-                    this.cards.add(new Card(s, v));
+                    value = v.toString();
+                    image = "/Blackjack_Group3/rescources/playingCards/"+suit+"/"+value;
+                    this.cards.add(new Card(s, v, image));
                 }
             }
         }

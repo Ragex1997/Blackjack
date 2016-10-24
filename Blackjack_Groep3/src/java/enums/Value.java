@@ -20,7 +20,7 @@ public enum Value {
     }
 
     public int getNumVal() {
-        return numVal;
+        return this.numVal;
     }
     
 }

@@ -4,9 +4,13 @@
         <servlet-name>test</servlet-name>
         <servlet-class>controllers.test</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GameTest</servlet-name>
+        <servlet-class>controllers.GameTest</servlet-class>
+    </servlet>
     <servlet-mapping>
-        <servlet-name>test</servlet-name>
-        <url-pattern>/test</url-pattern>
+        <servlet-name>GameTest</servlet-name>
+        <url-pattern>/GameTest</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
