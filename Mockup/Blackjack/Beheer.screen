@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="1" width="505" height="393" text="Browser&#xA;http://blackjack/Home" measuredWidth="505" measuredHeight="393">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="2" y="52" width="505" height="341" measuredWidth="505" measuredHeight="341" src="assets/AchtergrondStart.png"/>
+  <widgets xsi:type="model:Button" id="3" x="209" y="296" width="58" text="Home" measuredWidth="58" measuredHeight="25">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="4" x="24" y="80" width="57" height="53" measuredWidth="57" measuredHeight="53" src="assets/HelpImage.png"/>
+  <widgets xsi:type="model:Label" id="6" x="160" y="104" text="Account Beheer" measuredWidth="175" measuredHeight="40" foreground="#ffffff">
+    <font size="24px"/>
+  </widgets>
+  <widgets xsi:type="model:Table" id="10" x="48" y="149" width="377" height="92" text="Nickname,Balance,Icon,TimePlayed,(align:center). Actions&#xA;Peter,63,{computer},30m,[Edit] [View] [Delete]&#xA;Henri,21,{train},2h54m,[Edit] [View] [Delete]&#xA;Olga,55,{note},1h20m,[Edit] [View] [Delete]&#xA;" measuredWidth="377" measuredHeight="92" alternative="#eeeeee">
+    <font/>
+    <items x="279" y="24" width="20" height="15" text="Edit"/>
+    <items x="302" y="24" width="25" height="15" text="View"/>
+    <items x="330" y="24" width="33" height="15" text="Delete"/>
+    <items x="279" y="46" width="20" height="15" text="Edit"/>
+    <items x="302" y="46" width="25" height="15" text="View"/>
+    <items x="330" y="46" width="33" height="15" text="Delete"/>
+    <items x="279" y="68" width="20" height="15" text="Edit"/>
+    <items x="302" y="68" width="25" height="15" text="View"/>
+    <items x="330" y="68" width="33" height="15" text="Delete"/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
