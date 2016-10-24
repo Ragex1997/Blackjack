@@ -91,15 +91,3 @@ h2+p{
 #boven a:visited {color:#C0C0C0; text-decoration:none}
 #boven a:hover {color:#ffcc00; text-decoration:none}
 
-a:link {
-    text-decoration : none
-    color = black;
-}
-a:visited {
-    text-decoration : none
-    color =  black;
-}
-a:hover {
-    text-decoration : none
-    color = black;
-}
