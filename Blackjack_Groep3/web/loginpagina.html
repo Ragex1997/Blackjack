@@ -15,28 +15,35 @@ and open the template in the editor.
     <body> 
         <h1>Login Page</h1> 
 
-     
+
         <link rel="stylesheet" href="Opmaak.css" type="text/css" />
-    
-    <br>
-    <div align="center">
-    <form action="?login=1" method="post"><br><br>
-        <table>
-            <tr>
-                <td>Username:</td>
-                <td><input class="textbox" type="text" name="username"/><br><br></td>
-            </tr>
+
+        <br>
+        <div align="center">
+            <form action="?login=1" method="post"><br><br>
+
+                <table>
+                    <tr>
+                        <td>Username:</td>
+                        <td><input class="textbox" type="text" name="username"/><br><br></td>
+                    </tr>
+
+                    <tr>
+                        <td>Password:</td>
+                        <td><input class="textbox" type="password" name="password"/><br><br></td>
+                    </tr>
+                </table>
+                <br>
+                <br>
+                <input class="button" type="submit" value="Login"/>
+                <br>
+                <br>
+                <br>
+
+            </form>
             
-            <tr>
-                <td>Password:</td>
-                <td><input class="textbox" type="password" name="password"/><br><br></td>
-            </tr>
-            </table>
-            <br>
-            <br>
-        <input class="button" type="submit" value="Login"/>
+            <input class="button" type="submit" value="Back" onclick="location.href = 'startpagina.html'">
+        </div>
         
-    </form>
-    </div>
     </body>
-    </html>
+</html>
