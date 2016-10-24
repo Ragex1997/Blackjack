@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model:Screen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:model="http://wireframesketcher.com/1.0/model.ecore">
+  <widgets xsi:type="model:Browser" id="2" width="689" height="569" text="Browser&#xA;http://blackjack/Game" measuredWidth="689" measuredHeight="569">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="1" y="52" width="689" height="517" measuredWidth="689" measuredHeight="517" src="assets/Game_Table.png"/>
+  <widgets xsi:type="model:Image" id="8" x="16" y="216" width="39" height="53" measuredWidth="39" measuredHeight="53" src="assets/Game_card.png"/>
+  <widgets xsi:type="model:Image" id="9" x="64" y="215" width="41" height="55" measuredWidth="41" measuredHeight="55" src="assets/Game_card1.png"/>
+  <widgets xsi:type="model:Image" id="10" x="10" y="283" width="55" height="30" measuredWidth="55" measuredHeight="30" src="assets/Game_+-.png"/>
+  <widgets xsi:type="model:Image" id="11" x="114" y="400" width="65" height="33" measuredWidth="65" measuredHeight="33" src="assets/Game_+-.png"/>
+  <widgets xsi:type="model:Label" id="12" x="40" y="320" text="Peter" measuredWidth="61" measuredHeight="40" foreground="#ffffff">
+    <font size="24px" italic="false" underline="false"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="13" x="114" y="336" width="39" height="53" measuredWidth="39" measuredHeight="53" src="assets/Game_card.png"/>
+  <widgets xsi:type="model:Image" id="14" x="164" y="335" width="41" height="55" measuredWidth="41" measuredHeight="55" src="assets/Game_card1.png"/>
+  <widgets xsi:type="model:Label" id="15" x="76" y="280" text="7" measuredWidth="17" measuredHeight="36" foreground="#ffffff">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="16" x="184" y="399" text="12" measuredWidth="28" measuredHeight="36" foreground="#ffffff">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="17" x="164" y="438" text="Henri" measuredWidth="53" measuredHeight="36" foreground="#ffffff">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="18" x="287" y="369" width="39" height="53" measuredWidth="39" measuredHeight="53" src="assets/Game_card.png"/>
+  <widgets xsi:type="model:Image" id="19" x="336" y="368" width="41" height="55" measuredWidth="41" measuredHeight="55" src="assets/Game_card1.png"/>
+  <widgets xsi:type="model:Image" id="20" x="287" y="433" width="65" height="33" measuredWidth="65" measuredHeight="33" src="assets/Game_+-.png"/>
+  <widgets xsi:type="model:Label" id="21" x="368" y="432" text="23" measuredWidth="28" measuredHeight="36" foreground="#ffffff">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="22" x="258" y="482" measuredWidth="6" measuredHeight="23">
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Label" id="23" x="325" y="476" text="Olga" measuredWidth="48" measuredHeight="36" foreground="#ffffff">
+    <font size="20px"/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="24" x="104" y="278" width="49" height="39" measuredWidth="49" measuredHeight="39" src="assets/Game_Balance.png"/>
+  <widgets xsi:type="model:Image" id="25" x="215" y="397" width="49" height="39" measuredWidth="49" measuredHeight="39" src="assets/Game_Balance.png"/>
+  <widgets xsi:type="model:Image" id="27" x="395" y="422" width="49" height="39" measuredWidth="49" measuredHeight="39" src="assets/Game_Balance.png"/>
+  <widgets xsi:type="model:Image" id="28" x="287" y="52" width="107" height="99" measuredWidth="107" measuredHeight="99" src="assets/Game_Dealer.png"/>
+  <widgets xsi:type="model:Image" id="29" x="304" y="176" width="39" height="53" measuredWidth="39" measuredHeight="53" src="assets/Game_card.png"/>
+  <widgets xsi:type="model:Image" id="30" x="351" y="176" width="43" height="54" measuredWidth="43" measuredHeight="54" src="assets/Game_CardBack.png"/>
+  <widgets xsi:type="model:Image" id="31" y="319" width="41" height="41" measuredWidth="41" measuredHeight="41" src="assets/Game_Icon1.png"/>
+  <widgets xsi:type="model:Image" id="32" x="272" y="473" width="43" height="41" measuredWidth="43" measuredHeight="41" src="assets/Game_Icon2.png"/>
+  <widgets xsi:type="model:Image" id="33" x="114" y="435" width="39" height="42" measuredWidth="39" measuredHeight="42" src="assets/Game_Icon3.png"/>
+  <widgets xsi:type="model:Label" id="34" x="400" y="118" text="Dealer" measuredWidth="61" measuredHeight="33" foreground="#ffffff">
+    <font size="19px"/>
+  </widgets>
+  <widgets xsi:type="model:Alert" id="36" x="976" y="192" text="Alert&#xA;Inzet Correct?&#xA;Ja,Nee" measuredWidth="205" measuredHeight="132" icon="warning (large)">
+    <items x="15" y="93" width="80" height="24" text="Ja"/>
+    <items x="110" y="93" width="80" height="24" text="Nee"/>
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Image" id="37" x="576" y="473" width="97" height="85" measuredWidth="97" measuredHeight="85" src="assets/Game_Play2.png"/>
+  <widgets xsi:type="model:Alert" id="38" x="720" y="368" text="Alert&#xA;Play Again?&#xA;Ja,Nee, Add/Remove Player" measuredWidth="438" measuredHeight="132" icon="warning (large)">
+    <items x="15" y="93" width="126" height="24" text="Ja"/>
+    <items x="156" y="93" width="126" height="24" text="Nee"/>
+    <items x="297" y="93" width="126" height="24" text="Add/Remove Player"/>
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Alert" id="39" x="744" y="189" text="Alert&#xA;Henri heeft gewonnen&#xA;OK" measuredWidth="206" measuredHeight="132" icon="warning (large)">
+    <items x="111" y="93" width="80" height="24" text="OK"/>
+    <font/>
+  </widgets>
+  <widgets xsi:type="model:Alert" id="41" x="744" y="36" text="Alert&#xA;Peter's turn&#xA;Hit,Stand" measuredWidth="205" measuredHeight="132" icon="warning (large)">
+    <items x="15" y="93" width="80" height="24" text="Hit"/>
+    <items x="110" y="93" width="80" height="24" text="Stand"/>
+    <font/>
+  </widgets>
+  <hRuler/>
+  <vRuler/>
+  <font size="12px"/>
+</model:Screen>
