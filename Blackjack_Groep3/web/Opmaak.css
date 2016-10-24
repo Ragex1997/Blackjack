@@ -1,0 +1,93 @@
+.loginpage{
+    background:url(background.jpg) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #111111;
+    font-family: Times, serif;
+
+    font-size: 100%;
+}
+
+h1 {
+
+    text-align: center;
+    text-shadow: black;
+    color: yellow;
+    
+
+
+}
+
+
+.button {
+    align-self: center;
+    background-color: black;
+    border-color:yellow;
+    border-width:thin;
+    color: yellow;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius:15%;
+}
+
+.button:hover {
+    background-color: yellow;
+    border-color:black;
+    border-width:thin;
+    color: black;
+    font-size: 16px;
+    padding: 10px 20px;
+    text-transform: capitalize;
+}
+
+h2{
+    text-align: center;
+    text-shadow: darkorange;
+    color: darkorange;
+    background-color: black;
+
+}
+
+.textbox {
+    text-align: center;
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%)
+    
+}
+
+
+div{
+    font-style: italic;
+    color: #111111;
+
+}
+
+h2+p{
+    text-transform: uppercase;
+    font-style: normal
+}
+
+#boven a:link {color:#C0C0C0; text-decoration:none }
+#boven a:visited {color:#C0C0C0; text-decoration:none}
+#boven a:hover {color:#ffcc00; text-decoration:none}
+
+a:link {
+    text-decoration = none
+    color = black;
+}
+a:visited {
+    text-decoration = none
+    color =  black;
+}
+a:hover {
+    text-decoration = none
+    color = black;
+}
