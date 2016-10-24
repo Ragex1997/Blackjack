@@ -1,5 +1,5 @@
 .loginpage{
-    background:url(background.jpg) no-repeat center center fixed; 
+    background:url(rescources/background.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -80,14 +80,14 @@ h2+p{
 #boven a:hover {color:#ffcc00; text-decoration:none}
 
 a:link {
-    text-decoration = none
+    text-decoration : none
     color = black;
 }
 a:visited {
-    text-decoration = none
+    text-decoration : none
     color =  black;
 }
 a:hover {
-    text-decoration = none
+    text-decoration : none
     color = black;
 }

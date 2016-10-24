@@ -7,6 +7,7 @@ package model;
 
 import enums.Suit;
 import enums.Value;
+import org.kohsuke.rngom.util.Uri;
 
 /**
  *
@@ -17,8 +18,8 @@ public class Card {
     private final Suit suit;
     private final Value value;
     private Boolean visable;
-    private String cardImage;
-    private String backImage;
+    private Uri cardImage;
+    private Uri backImage;
 
     public Card(Suit suit, Value value) {
         this.suit = suit;
@@ -37,19 +38,19 @@ public class Card {
         return visable;
     }
 
-    public String getCardImage() {
+    public Uri getCardImage() {
         return cardImage;
     }
 
-    public void setCardImage(String cardImage) {
+    public void setCardImage(Uri cardImage) {
         this.cardImage = cardImage;
     }
 
-    public String getBackImage() {
+    public Uri getBackImage() {
         return backImage;
     }
 
-    public void setBackImage(String backImage) {
+    public void setBackImage(Uri backImage) {
         this.backImage = backImage;
     }
     
