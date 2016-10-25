@@ -20,7 +20,7 @@ public class Deck {
     
     private List<Card>cards;
 
-    public Deck(List<Card> cards) {
+    public Deck() {
         this.cards = new ArrayList<Card>();
     }
     
@@ -36,7 +36,7 @@ public class Deck {
                
                 for(Value v : Value.values()){
                     value = v.toString();
-                    image = "/Blackjack_Group3/rescources/playingCards/"+suit+"/"+value;
+                    image = "rescources/playingCards/"+suit+"/"+value+".png";
                     this.cards.add(new Card(s, v, image));
                 }
             }

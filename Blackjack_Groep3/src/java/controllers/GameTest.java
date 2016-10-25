@@ -12,6 +12,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Deck;
 
 /**
  *
@@ -32,10 +33,16 @@ public class GameTest extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
 
-            request.setAttribute("imagelocation", "rescources/playingCards/Diamonds/10.png");
-            RequestDispatcher view = request.getRequestDispatcher("game.jsp");
+            Deck deck = new Deck();
+            deck.fillDeck();
+            deck.shuffleDeck();
+            
+            String location = deck.drawCard().getCardImage();
+
+            request.setAttribute("imagelocation", location);
+            
+            RequestDispatcher view = request.getRequestDispatcher("/game/game.jsp");
             view.forward(request, response);
         }
     }
