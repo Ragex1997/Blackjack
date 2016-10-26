@@ -1,6 +1,6 @@
 <%-- 
     Document   : game
-    Created on : 24-okt-2016, 16:24:22
+    Created on : 26-okt-2016, 17:45:04
     Author     : Anthony Lannoote
 --%>
 
@@ -12,13 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
-        
-        <%
-            String imageLocation = request.getAttribute("imagelocation").toString();
-            
-            %>
-            <img src="<%=imageLocation %>" alt="Mountain View" style="width:150px;height:200px;">
-        
+        <div id="top" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backGrounds/blackjacktable.png" width="1330" height="640"> </div>
+        <div id="under" style="left: 580px; top: 30px; position: absolute"> <img src="/Blackjack_Groep3/rescources/icons/Java the Hutt.png" width="200" height="200"> </div>
+
     </body>
 </html>

@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Deck;
+import model.Game;
 
 /**
  *
@@ -34,6 +35,9 @@ public class GameTest extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            
+           // Game game = new Game(users);
+                        
             Deck deck = new Deck();
             deck.fillDeck();
             deck.shuffleDeck();
@@ -42,7 +46,7 @@ public class GameTest extends HttpServlet {
 
             request.setAttribute("imagelocation", location);
             
-            RequestDispatcher view = request.getRequestDispatcher("/game/game.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/game/gameTest.jsp");
             view.forward(request, response);
         }
     }
