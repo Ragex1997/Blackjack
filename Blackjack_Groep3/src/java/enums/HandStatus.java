@@ -9,6 +9,6 @@ package enums;
  *
  * @author Anthony Lannoote
  */
-public enum Status {
-    WIN, LOSS, BUSTED, BLACKJACK, PUSH;
+public enum HandStatus {
+    BUSTED, BLACKJACK, STAND;
 }

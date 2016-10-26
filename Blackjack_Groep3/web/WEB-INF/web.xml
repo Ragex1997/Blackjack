@@ -6,7 +6,7 @@
     </servlet>
     <servlet>
         <servlet-name>GameTest</servlet-name>
-        <servlet-class>controllers.GameTest</servlet-class>
+        <servlet-class>controllers.game.GameTest</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>GameTest</servlet-name>

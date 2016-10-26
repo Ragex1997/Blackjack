@@ -5,7 +5,8 @@
  */
 package model;
 
-import enums.Status;
+import enums.HandStatus;
+import static enums.HandStatus.*;
 import static enums.Value.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Hand {
 
     private List<Card> cards;
     private int bet;
-    private Status status;
+    private HandStatus status;
 
     public Hand() {
         this.cards = new ArrayList<Card>();
@@ -28,7 +29,7 @@ public class Hand {
         this.bet = bet;
     }
 
-    public void setStatus(Status status) {
+    public void setStatus(HandStatus status) {
         this.status = status;
     }
 
@@ -41,24 +42,35 @@ public class Hand {
     }
     
     private int calculateValue(){
-        int waarde = 0;
+        int value = 0;
         boolean hasAce = false;
         
         for(Card c : cards){
             if(c.getValue().equals(ACE)){
                 hasAce = true;
             }
-            waarde =+ c.getValue().getNumVal();
+            value =+ c.getValue().getNumVal();
         }
         
-        if(waarde > 21 && hasAce == true){
-            waarde =- 10;
+        if(value > 21 && hasAce == true){
+            value =- 10;
         }
-        return waarde;
+        return value;
     }
 
     public int getValue() {
         return calculateValue();
+    }
+    
+    public HandStatus evaluate(){
+        HandStatus status = null;
+        int value = this.getValue();
+        if(value > 21){
+            status = BUSTED;
+        }else if(value == 21 && cards.size() == 2){
+            status = BLACKJACK;
+        }
+        return status;
     }
 
 }
