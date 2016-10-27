@@ -5,6 +5,11 @@
  */
 package model;
 
+
+import com.sun.javafx.scene.control.skin.VirtualFlow;
+import enums.GameStatus;
+import enums.HandStatus;
+import static enums.HandStatus.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -58,6 +63,28 @@ public class Game {
 
     public int dealerStand() {
         return this.dealer.getHand().getValue();
+    }
+    
+    public void evaluateGame(){
+        
+        int dealerPoints;
+        HandStatus dealerHandStatus;
+        HandStatus userHandStatus;
+        
+        List<User>userWinners = new ArrayList<User>(this.users);
+        
+        dealerPoints = this.dealer.getHand().getValue();
+        dealerHandStatus = this.dealer.getHand().getStatus();
+        
+        for(User u : userWinners){
+            userHandStatus = u.getHand().getStatus();
+            
+            if(userHandStatus == BUSTED){
+                userWinners.remove(u);
+            }
+            
+        }
+        
     }
 
 }
