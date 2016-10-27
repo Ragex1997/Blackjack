@@ -6,6 +6,8 @@
 package databank.services;
 
 import databank.DAO.BlackjackDAO;
+import databank.util.Conversie;
+import java.util.List;
 
 /**
  *
@@ -13,7 +15,7 @@ import databank.DAO.BlackjackDAO;
  */
 public class BlackjackService {
     
-    //public List<String>getUsers(){
-        //return Conversie.convertResultsetToList(BlackjackDAO.selectData("user", 0, orderVeld))
-    //}
+    public List<String>getUsers(){
+        return Conversie.convertResultsetToList(BlackjackDAO.selectUsers("user", 0, "nickname"));
+    }
 }

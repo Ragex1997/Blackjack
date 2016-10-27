@@ -22,7 +22,7 @@ public class BlackjackDAO {
         
     }
     
-    public static ResultSet selectData(String tabel, int where, String orderVeld){
+    public static ResultSet selectUsers(String tabel, int where, String orderVeld){
         
         String query = "SELECT nickname, icon, balance FROM " + tabel + " WHERE userid =" + where;
         Connection con = DatabaseSingleton.getDatabaseSingleton()
