@@ -12,7 +12,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backGrounds/blackjacktable.png" width="1330" height="640"> </div>
+        <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="640"> </div>
         <div id="dealericon" style="position: absolute; top: 30px; left: 580px;"> <img src="/Blackjack_Groep3/rescources/icons/Java the Hutt.png" width="200" height="200"> </div>
 
         <div id="player1" style="position: absolute; top: 200px; left: 50px;">
