@@ -6,7 +6,8 @@
 package model;
 
 
-import enums.GameStatus;
+
+import static enums.GameStatus.*;
 import enums.HandStatus;
 import static enums.HandStatus.*;
 import java.util.ArrayList;
