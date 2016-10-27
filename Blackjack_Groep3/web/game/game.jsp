@@ -14,18 +14,22 @@
     <body>
         <form>
             <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backGrounds/blackjacktable.png" width="1330" height="640"> </div>
-            
+
             <div id="dealer" style="position: absolute; top: 30px; left: 580px;">
-                
+
                 <div id="dealericon" style="position: absolute; top: 50px; left: 160px;">
                     <img src="/Blackjack_Groep3/rescources/icons/Java the Hutt.png" width="200" height="200"> 
+                    <div id="dealername" style="position: absolute; top: 180px; left: 40px;">
+                        <font color="white">Jabba The Dealer</font>
+                    </div>
                 </div>
-                
+
                 <div id="card1" style="position: absolute; top: 100px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
                 </div>
                 <div id="card2" style="position: absolute; top: 100px; left: 90px;">
-                    <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/FIVE.png" alt="" width="70" height="100"/>
+                    <img src="/Blackjack_Groep3/rescources/playingCards/playingcardback.png" alt="" width="70" height="100"/>
+                   
                 </div>
             </div>
 
@@ -41,8 +45,14 @@
                 </div>             
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <font color="white">Mark</font>
-                </div>  
+                    <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
+                        <font color="white">Mark</font>
+                    </div>
+                </div>
+                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
+                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
+                    <font color="white">23</font>
+                </div>
             </div> 
 
             <div id="player2" style="position: absolute; top: 300px; left: 300px;">
@@ -57,7 +67,9 @@
                 </div>             
                 <div id="icon2" style="position: absolute; top: 150px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <font color="white">Mark</font>
+                    <div id="playername2" style="position: absolute; top: 110px; left: 30px;">
+                        <font color="white">Mark</font>
+                    </div>
                 </div>  
             </div>
 
@@ -73,7 +85,9 @@
                 </div>             
                 <div id="icon3" style="position: absolute; top: 150px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <font color="white">Mark</font>
+                    <div id="playername3" style="position: absolute; top: 110px; left: 30px;">
+                        <font color="white">Mark</font>
+                    </div>
                 </div>  
             </div>
 
@@ -89,7 +103,9 @@
                 </div>             
                 <div id="icon4" style="position: absolute; top: 150px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <font color="white">Mark</font>
+                    <div id="playername4" style="position: absolute; top: 110px; left: 30px;">
+                        <font color="white">Mark</font>
+                    </div>
                 </div>  
             </div>
 
@@ -105,7 +121,9 @@
                 </div>             
                 <div id="icon4" style="position: absolute; top: 150px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <font color="white">Mark</font>
+                    <div id="playername5" style="position: absolute; top: 110px; left: 30px;">
+                        <font color="white">Mark</font>
+                    </div>
                 </div>  
             </div>
 
