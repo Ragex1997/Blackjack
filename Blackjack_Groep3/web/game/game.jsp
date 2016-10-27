@@ -12,7 +12,8 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="640"> </div>
+        <form>
+        <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backGrounds/blackjacktable.png" width="1330" height="640"> </div>
         <div id="dealericon" style="position: absolute; top: 30px; left: 580px;"> <img src="/Blackjack_Groep3/rescources/icons/Java the Hutt.png" width="200" height="200"> </div>
 
         <div id="player1" style="position: absolute; top: 200px; left: 50px;">
@@ -23,7 +24,7 @@
                 <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/FIVE.png" alt="" width="70" height="100"/>
             </div>
             <div id="selectbet" style="position: absolute; top: 110px; left: 0px;">
-                <input type="number" name="bet" step="1" value="1" min="1" style="width: 40px;">
+                <input type="number" name="bet" step="1" value="1" min="1" max="<%=//max%>" style="width: 40px;">
             </div>
                         
             
@@ -34,6 +35,6 @@
             </div>
             
         </div> 
-
+        </form>
     </body>
 </html>
