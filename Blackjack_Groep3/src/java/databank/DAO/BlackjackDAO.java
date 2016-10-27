@@ -22,6 +22,9 @@ public class BlackjackDAO {
         
     }
     
+    //nog aanpassen naar stored procedures...
+    
+    
     public static ResultSet selectUsers(String tabel, int where, String orderVeld){
         
         String query = "SELECT nickname, icon, balance FROM " + tabel + " WHERE userid =" + where;
