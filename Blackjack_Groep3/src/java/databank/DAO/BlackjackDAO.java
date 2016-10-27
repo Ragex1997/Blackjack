@@ -40,4 +40,22 @@ public class BlackjackDAO {
         }
         return rs;
     }
+    
+    public static ResultSet editUsers(String tabel, int where, String orderVeld){
+        String query = "UPDATE nickname, icon, balance FROM " + tabel + "WHERE userid = " + where;
+        Connection con = DatabaseSingleton.getDatabaseSingleton()
+                            .getConnection(true);
+        ResultSet rs = null;
+        Statement stmt = null;
+        
+        try{
+            stmt
+                    = con.createStatement();
+            
+            rs = stmt.executeQuery(query);
+        } catch(SQLException e){
+            e.printStackTrace();
+        }
+        return rs;
+    }
 }
