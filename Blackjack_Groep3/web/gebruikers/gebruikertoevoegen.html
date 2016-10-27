@@ -4,13 +4,14 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-<html class="loginpage">
+<html class="useradd">
     <head>
         <title>gebruiker toevoegen</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
+        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
         <h1>voeg een gebruiker toe</h1>
         
             <link rel="stylesheet" href=".../Opmaak.css" type="text/css" />
@@ -20,7 +21,9 @@ and open the template in the editor.
             <form action="GebruikerToevoegenServlet" method="post">
                 <br>
                 <br>
+                <div class = "setcolor">
             <table>
+                
                 <tr>
                     <td>nickname:</td>
                     <td><input class="textbox" type="text" name="nickname"><br><br></td>
@@ -35,12 +38,14 @@ and open the template in the editor.
                     <td>credits:</td>
                     <td><input class="textbox" type="number" name="credits"><br><br> <td>
                 </tr>
-            </table>
                 
+            </table>
+                </div>
                 <br>
                 <br>
                 <input class="button" type="submit" value="Gebruiker toevoegen" />
         </form>
+                <BR><input class="button" type="submit" value="Back" onclick="location.href='accountbeheer.jsp'">
             </div>
     </body>
 </html>
