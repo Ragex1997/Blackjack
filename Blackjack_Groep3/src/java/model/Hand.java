@@ -9,6 +9,7 @@ import enums.HandStatus;
 import static enums.HandStatus.*;
 import static enums.Value.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -18,15 +19,10 @@ import java.util.List;
 public class Hand {
 
     private List<Card> cards;
-    private int bet;
     private HandStatus status;
 
     public Hand() {
         this.cards = new ArrayList<Card>();
-    }
-
-    public void setBet(int bet) {
-        this.bet = bet;
     }
 
     public void setStatus(HandStatus status) {
@@ -45,11 +41,16 @@ public class Hand {
         int value = 0;
         boolean hasAce = false;
         
-        for(Card c : cards){
-            if(c.getValue().equals(ACE)){
+        
+        Iterator<Card> IterCard = this.cards.iterator();
+        
+        while(IterCard.hasNext()){
+            Card card = IterCard.next();
+            
+            if(card.getValue().equals(ACE)){
                 hasAce = true;
             }
-            value =+ c.getValue().getNumVal();
+            value =+ card.getValue().getNumVal();
         }
         
         if(value > 21 && hasAce == true){
@@ -62,7 +63,12 @@ public class Hand {
         return calculateValue();
     }
     
-    public HandStatus evaluate(){
+    public HandStatus getStatus(){
+        return evaluate();
+    }
+    
+    private HandStatus evaluate(){
+        
         HandStatus status = null;
         int value = this.getValue();
         if(value > 21){
