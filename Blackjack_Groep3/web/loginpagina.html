@@ -41,7 +41,20 @@ and open the template in the editor.
                 <br>
 
             </form>
-            
+<!--
+voor login System: vergelijk ingegeven passwoord met passwoord in database gelinkt aan de juiste gebruiker:
+
+
+String user; (entered username)
+String ep; (entered password)
+String dp; (password uit database gelinkt aan de ingegeven username)
+
+statement = "Select password from Users where username = '"+user+"'";
+
+if(ep == dp){
+    login(user);
+}
+-->
             <input class="button" type="submit" value="Back" onclick="location.href = 'startpagina.html'">
         </div>
         
