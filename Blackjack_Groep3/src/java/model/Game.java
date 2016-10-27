@@ -72,6 +72,7 @@ public class Game {
 
         if (userPoints == dealerPoints) {
             push = true;
+            u.setGameStatus(PUSH);
         }
         return push;
     }
@@ -84,6 +85,7 @@ public class Game {
 
         if (userPoints > dealerPoints) {
             win = true;
+            u.setGameStatus(WIN);
         }
 
         return win;
@@ -109,16 +111,16 @@ public class Game {
                 this.users.get(this.users.indexOf(u)).setGameStatus(LOSS);
                 userWinners.remove(u);
             } else if (userHandStatus == BLACKJACK) {
-                payout = (int) (u.getBet() * 1.5);
+                payout = (int) (u.getBet() * 2.5);
                 u.addPayout(payout);
             } else if (evaluateUserWin(u)) {
-                
+                payout = (int)(u.getBet()) * 2;
+                u.addPayout(payout);
 
             }else if(evaluteUserPush(u)){
-                
+                payout = (int)(u.getBet());
+                u.addPayout(payout);
             }
         }
-
     }
-
 }
