@@ -29,6 +29,10 @@ public class Hand {
         this.status = status;
     }
 
+    public void setStatusStand() {
+        this.status = STAND;
+    }
+
     public void addCard(Card card) {
         this.cards.add(card);
     }
@@ -36,25 +40,24 @@ public class Hand {
     public List<Card> getCards() {
         return cards;
     }
-    
-    private int calculateValue(){
+
+    private int calculateValue() {
         int value = 0;
         boolean hasAce = false;
-        
-        
+
         Iterator<Card> IterCard = this.cards.iterator();
-        
-        while(IterCard.hasNext()){
+
+        while (IterCard.hasNext()) {
             Card card = IterCard.next();
-            
-            if(card.getValue().equals(ACE)){
+
+            if (card.getValue().equals(ACE)) {
                 hasAce = true;
             }
-            value =+ card.getValue().getNumVal();
+            value = +card.getValue().getNumVal();
         }
-        
-        if(value > 21 && hasAce == true){
-            value =- 10;
+
+        if (value > 21 && hasAce == true) {
+            value = - 10;
         }
         return value;
     }
@@ -62,18 +65,18 @@ public class Hand {
     public int getValue() {
         return calculateValue();
     }
-    
-    public HandStatus getStatus(){
+
+    public HandStatus getStatus() {
         return evaluate();
     }
-    
-    private HandStatus evaluate(){
-        
+
+    private HandStatus evaluate() {
+
         HandStatus status = null;
         int value = this.getValue();
-        if(value > 21){
+        if (value > 21) {
             status = BUSTED;
-        }else if(value == 21 && cards.size() == 2){
+        } else if (value == 21 && cards.size() == 2) {
             status = BLACKJACK;
         }
         return status;

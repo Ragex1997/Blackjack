@@ -5,6 +5,8 @@
  */
 package model;
 
+import enums.GameStatus;
+
 /**
  *
  * @author Anthony Lannoote
@@ -16,6 +18,7 @@ public class User {
     private String icon;
     private Hand hand;
     private int bet;
+    private GameStatus gameStatus;
 
     public User(String nickName, int balance, String icon) {
         this.nickName = nickName;
@@ -44,6 +47,10 @@ public class User {
     public int getBet() {
         return bet;
     }
+
+    public GameStatus getGameStatus() {
+        return gameStatus;
+    }
     
     public void addCard(Card card){
         this.getHand().addCard(card);
@@ -52,7 +59,11 @@ public class User {
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
-
+    
+    public void addPayout(int payout){
+        this.balance =+ payout;
+    }
+    
     public void setBalance(int balance) {
         this.balance = balance;
     }
@@ -67,6 +78,11 @@ public class User {
 
     public void setBet(int bet) {
         this.bet = bet;
+        this.balance =- this.bet;
+    }
+
+    public void setGameStatus(GameStatus gameStatus) {
+        this.gameStatus = gameStatus;
     }
 
     

@@ -6,7 +6,6 @@
 package model;
 
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import enums.GameStatus;
 import enums.HandStatus;
 import static enums.HandStatus.*;
@@ -68,6 +67,8 @@ public class Game {
     public void evaluateGame(){
         
         int dealerPoints;
+        int userPoints;
+        int payout;
         HandStatus dealerHandStatus;
         HandStatus userHandStatus;
         
@@ -80,8 +81,14 @@ public class Game {
             userHandStatus = u.getHand().getStatus();
             
             if(userHandStatus == BUSTED){
+                this.users.get(this.users.indexOf(u)).setGameStatus(LOSS);
                 userWinners.remove(u);
+            }else if(userHandStatus == BLACKJACK){
+                payout = (int) (u.getBet()*1.5);
+                u.addPayout(payout);
             }
+            
+            
             
         }
         
