@@ -6,7 +6,7 @@
     <property name="keepgenerated" value="true">
       <description>Keep a copy of the generated servlet class' java code.</description>
       
-      <login-config>
+    <login-config>
         <auth-method>BASIC</auth-method>
         <realm-name>"nog in te vullen"</realm-name>
     </login-config> 

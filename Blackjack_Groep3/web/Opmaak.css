@@ -1,5 +1,5 @@
 .loginpage{
-    background:url(rescources/backgroundStartPage.jpg) no-repeat center center fixed; 
+    background:url(rescources/backgrounds/background_loginpage.jpg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -11,7 +11,7 @@
 }
 
 .startpage{
-    background:url(background_start.jpeg) no-repeat center center fixed; 
+    background:url(rescources/backgrounds/background_start.jpeg) no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,6 +22,45 @@
     font-size: 100%;
 }
 
+.accountbeheer{
+    background:url(rescources/backgrounds/Mos_Eisley.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #111111;
+    font-family: Times, serif;
+
+    font-size: 100%;
+}
+
+.useradd{
+    background:url(rescources/backgrounds/useradd.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #111111;
+    font-family: Times, serif;
+
+    font-size: 100%;
+}
+
+.history{
+    background:url(rescources/backgrounds/Bespin.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #111111;
+    font-family: Times, serif;
+
+    font-size: 100%;
+}
+
+.setcolor{
+    color: yellow;
+}
 h1 {
 
     text-align: center;

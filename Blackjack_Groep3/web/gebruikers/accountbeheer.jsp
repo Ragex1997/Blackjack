@@ -6,12 +6,13 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html class = "accountbeheer">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Accountbeheer</title>
     </head>
     <body>
+        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
         <!--
         aantalGebruikers = 
         -->
@@ -30,12 +31,13 @@
                 <td></td>    <%--uit db halen--%>
                 <td></td>       <%--uit db halen--%>
                 <td></td>   <%--via timer vastgelegd en dan in db gezet --%>
-                <td><%out.println("<a href=\"" + response.encodeURL("edit") + "\">edit</a>");
-                    out.println("a href=\"" + response.encodeURL("view") + "\">view</a>");
-                    out.println("a href=\"" + response.encodeURL("delete") + "\">delete</a>");%>
+                <td>
+                  <input class="button" type="button" onclick="location.href='gebruikertoevoegen.html'" value="gebruiker toevoegen"><br><br>
+                  <input class="button" type="button" onclick="location.href='gebruikerview.html'" value="gebruiker bekijken"><br><br>
+                  <input class="button" type="button" onclick="location.href='gebruikerdelete.html'" value="gebruiker verwijderen"><br><br>
                 </td>                
             </tr>                                   
         </table>
-                <button><a href="home">Home</button>
+                <input class="button" type="submit" value="Back" onclick="location.href='../startpagina.html'">
     </body>
 </html>
