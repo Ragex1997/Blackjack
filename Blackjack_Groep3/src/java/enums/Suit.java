@@ -10,5 +10,17 @@ package enums;
  * @author Anthony Lannoote
  */
 public enum Suit {
-    HEART, SPADE, DIAMOND, CLUB;
+    HEART("Hearts"), SPADE("Spades"), DIAMOND("Diamonds"), CLUB("Clubs");
+
+    private String suit;
+
+    Suit(String suit) {
+        this.suit = suit;
+    }
+
+    public String getSuit() {
+        return this.suit;
+    }
+    
+    
 }

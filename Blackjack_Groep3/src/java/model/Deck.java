@@ -20,15 +20,24 @@ public class Deck {
     
     private List<Card>cards;
 
-    public Deck(List<Card> cards) {
+    public Deck() {
         this.cards = new ArrayList<Card>();
     }
     
     public void fillDeck(){
+        
+        String suit;
+        String value;
+        String image;
+        
         for(int i = 0 ; i < 52 ; i++){
             for(Suit s : Suit.values()){
+                suit = s.getSuit();
+               
                 for(Value v : Value.values()){
-                    this.cards.add(new Card(s, v));
+                    value = v.toString();
+                    image = "rescources/playingCards/"+suit+"/"+value+".png";
+                    this.cards.add(new Card(s, v, image));
                 }
             }
         }
