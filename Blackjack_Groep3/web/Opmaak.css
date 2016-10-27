@@ -61,6 +61,18 @@
 .setcolor{
     color: yellow;
 }
+
+.select{
+    background:url(rescources/backgrounds/temple.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    color: #111111;
+    font-family: Times, serif;
+
+    font-size: 100%;
+}
 h1 {
 
     text-align: center;
