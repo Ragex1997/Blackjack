@@ -5,8 +5,6 @@
  */
 package model;
 
-
-
 import static enums.GameStatus.*;
 import enums.HandStatus;
 import static enums.HandStatus.*;
@@ -44,7 +42,8 @@ public class Game {
 
     /**
      * De speler trekt een kaart van het Deck
-     * @param user 
+     *
+     * @param user
      */
     public void playerHit(User user) {
         user.addCard(deck.drawCard());
@@ -64,36 +63,62 @@ public class Game {
     public int dealerStand() {
         return this.dealer.getHand().getValue();
     }
-    
-    public void evaluateGame(){
-        
+
+    private boolean evaluteUserPush(User u) {
+
+        int dealerPoints = this.dealer.getHand().getValue();
+        int userPoints = u.getHand().getValue();
+        boolean push = false;
+
+        if (userPoints == dealerPoints) {
+            push = true;
+        }
+        return push;
+    }
+
+    private boolean evaluateUserWin(User u) {
+
+        int dealerPoints = this.dealer.getHand().getValue();
+        int userPoints = u.getHand().getValue();
+        boolean win = false;
+
+        if (userPoints > dealerPoints) {
+            win = true;
+        }
+
+        return win;
+    }
+
+    public void evaluateGame() {
+
         int dealerPoints;
         int userPoints;
         int payout;
         HandStatus dealerHandStatus;
         HandStatus userHandStatus;
-        
-        List<User>userWinners = new ArrayList<User>(this.users);
-        
+
+        List<User> userWinners = new ArrayList<User>(this.users);
+
         dealerPoints = this.dealer.getHand().getValue();
         dealerHandStatus = this.dealer.getHand().getStatus();
-        
-        for(User u : userWinners){
+
+        for (User u : userWinners) {
             userHandStatus = u.getHand().getStatus();
-            
-            if(userHandStatus == BUSTED){
+
+            if (userHandStatus == BUSTED) {
                 this.users.get(this.users.indexOf(u)).setGameStatus(LOSS);
                 userWinners.remove(u);
-            }else if(userHandStatus == BLACKJACK){
-                payout = (int) (u.getBet()*1.5);
+            } else if (userHandStatus == BLACKJACK) {
+                payout = (int) (u.getBet() * 1.5);
                 u.addPayout(payout);
+            } else if (evaluateUserWin(u)) {
+                
+
+            }else if(evaluteUserPush(u)){
+                
             }
-            
-            
-            
         }
-        
+
     }
 
 }
-
