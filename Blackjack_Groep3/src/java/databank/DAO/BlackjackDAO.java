@@ -16,47 +16,43 @@ import java.sql.Statement;
  * @author Julie
  */
 public class BlackjackDAO {
+
     private Connection connection;
-    private Statement statement;    
-    public BlackjackDAO(){
-        
+    private Statement statement;
+
+    public BlackjackDAO() {
+
     }
-    
+
     //nog aanpassen naar stored procedures...
-    
-    
-    public static ResultSet selectUsers(String tabel, int where, String orderVeld){
-        
+    public static ResultSet selectUsers(String tabel, int where, String orderVeld) {
+
         String query = "SELECT nickname, icon, balance FROM " + tabel + " WHERE userid =" + where;
-        Connection con = DatabaseSingleton.getDatabaseSingleton()
-                            .getConnection(true);
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;
-        
-        try{
-            stmt
-                    = con.createStatement();
-            
+
+        try {
+            stmt = con.createStatement();
+
             rs = stmt.executeQuery(query);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;
     }
-    
-    public static ResultSet editUsers(String tabel, int where, String orderVeld){
+
+    public static ResultSet editUsers(String tabel, int where, String orderVeld) {
         String query = "UPDATE nickname, icon, balance FROM " + tabel + "WHERE userid = " + where;
-        Connection con = DatabaseSingleton.getDatabaseSingleton()
-                            .getConnection(true);
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         Statement stmt = null;
-        
-        try{
-            stmt
-                    = con.createStatement();
-            
+
+        try {
+            stmt = con.createStatement();
+
             rs = stmt.executeQuery(query);
-        } catch(SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;

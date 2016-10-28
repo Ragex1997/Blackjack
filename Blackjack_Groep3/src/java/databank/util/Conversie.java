@@ -15,6 +15,7 @@ import java.util.List;
  * @author Julie
  */
 public class Conversie {
+    
     public static List<String> convertResultsetToList(ResultSet rs){
         List lijst = new ArrayList();
         
@@ -32,4 +33,5 @@ public class Conversie {
         }
         return lijst;
     }
+    
 }

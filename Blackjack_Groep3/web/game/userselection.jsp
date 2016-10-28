@@ -12,7 +12,10 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
+        <link rel="stylesheet" href="/Opmaak.css" type="text/css" />
         <h1>Hello World!</h1>
+        
+        
+        
     </body>
 </html>
