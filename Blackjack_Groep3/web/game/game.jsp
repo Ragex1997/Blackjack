@@ -29,7 +29,7 @@
                 </div>
                 <div id="card2" style="position: absolute; top: 100px; left: 90px;">
                     <img src="/Blackjack_Groep3/rescources/playingCards/playingcardback.png" alt="" width="70" height="100"/>
-                   
+
                 </div>
             </div>
 
@@ -71,6 +71,10 @@
                         <font color="white">Mark</font>
                     </div>
                 </div>  
+                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
+                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
+                    <font color="white">23</font>
+                </div>
             </div>
 
             <div id="player3" style="position: absolute; top: 350px; left: 600px;">
@@ -89,6 +93,10 @@
                         <font color="white">Mark</font>
                     </div>
                 </div>  
+                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
+                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
+                    <font color="white">23</font>
+                </div>
             </div>
 
             <div id="player3" style="position: absolute; top: 300px; left: 850px;">
@@ -107,6 +115,10 @@
                         <font color="white">Mark</font>
                     </div>
                 </div>  
+                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
+                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
+                    <font color="white">23</font>
+                </div>
             </div>
 
             <div id="player4" style="position: absolute; top: 200px; left: 1100px;">
@@ -125,6 +137,14 @@
                         <font color="white">Mark</font>
                     </div>
                 </div>  
+                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
+                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
+                    <font color="white">23</font>
+                </div>
+            </div>
+            
+            <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
+                <img src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="" width="150" height="150"/>
             </div>
 
         </form>
