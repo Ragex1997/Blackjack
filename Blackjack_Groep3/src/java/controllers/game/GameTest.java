@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import model.Deck;
-import model.Game;
 
 /**
  *
@@ -39,8 +38,6 @@ public class GameTest extends HttpServlet {
            // Game game = new Game(users);
                         
             Deck deck = new Deck();
-            deck.fillDeck();
-            deck.shuffleDeck();
             
             String location = deck.drawCard().getCardImage();
 

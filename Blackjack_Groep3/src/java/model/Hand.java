@@ -41,26 +41,6 @@ public class Hand {
         return cards;
     }
 
-    private int calculateValue() {
-        int value = 0;
-        boolean hasAce = false;
-
-        Iterator<Card> IterCard = this.cards.iterator();
-
-        while (IterCard.hasNext()) {
-            Card card = IterCard.next();
-
-            if (card.getValue().equals(ACE)) {
-                hasAce = true;
-            }
-            value = +card.getValue().getNumVal();
-        }
-
-        if (value > 21 && hasAce == true) {
-            value = - 10;
-        }
-        return value;
-    }
 
     public int getValue() {
         return calculateValue();
@@ -70,8 +50,37 @@ public class Hand {
         return evaluate();
     }
 
-    private HandStatus evaluate() {
+       /**
+     * Berekenen van de waarde van je hand
+     * @return 
+     */
+    private int calculateValue() {
+        int value = 0;
+        int ace = 0;
+        Iterator<Card> IterCard = this.cards.iterator();
 
+        while (IterCard.hasNext()) {
+            Card card = IterCard.next();
+
+            value = +card.getValue().getNumVal();
+            
+            if (card.getValue().equals(ACE)) {
+                ace++;
+            }
+            if (value > 21 && ace > 0) {
+                value = - 10;
+                ace--;
+            }
+        }
+        this.evaluate();
+        return value;
+    }
+    
+    /**
+     * Controle op een Bust of Blackjack
+     * @return 
+     */
+    private HandStatus evaluate() {
         HandStatus status = null;
         int value = this.getValue();
         if (value > 21) {

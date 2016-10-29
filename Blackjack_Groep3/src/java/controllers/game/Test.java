@@ -6,13 +6,14 @@
 package controllers.game;
 
 import java.io.File;
+import model.Deck;
 
 /**
  *
  * @author Anthony Lannoote
  */
 public class Test {
-
+    
     /**
      * @param args the command line arguments
      */
@@ -20,8 +21,15 @@ public class Test {
 
     //Voor het eventueel overlopen van de map met icons
     public static void main(String... args) {
-        File[] files = new File("C:\\Develop\\BlackjackProject\\Blackjack\\Blackjack_Groep3\\web\\rescources\\icons").listFiles();
-        showFiles(files);
+       
+        Deck deck = new Deck();
+        deck.fillDeck();
+        deck.shuffleDeck();
+        
+        System.out.println(deck.drawCard().getCardImage());
+        
+        //File[] files = new File("C:\\Develop\\BlackjackProject\\Blackjack\\Blackjack_Groep3\\web\\rescources\\icons").listFiles();
+        //showFiles(files);
     }
 
     public static void showFiles(File[] files) {

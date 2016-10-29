@@ -24,6 +24,8 @@ public class Game {
     public Game(List<User> users) {
         this.users = new ArrayList<User>(users);
     }
+  
+    
 
     /**
      * De kaarten worden verdeeld onder de dealer en de spelers

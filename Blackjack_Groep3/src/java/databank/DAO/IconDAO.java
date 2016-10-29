@@ -35,7 +35,12 @@ public class IconDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rs;
+        return rs;  
+    }
+    
+    public static void InsertDataIcon(String name, String location){
+        
+        
         
     }
     

@@ -15,12 +15,12 @@ public class User {
     
     private String nickName;
     private int balance;
-    private String icon;
+    private Icon icon;
     private Hand hand;
     private int bet;
     private GameStatus gameStatus;
 
-    public User(String nickName, int balance, String icon) {
+    public User(String nickName, int balance, Icon icon) {
         this.nickName = nickName;
         this.balance = balance;
         this.icon = icon;
@@ -36,7 +36,7 @@ public class User {
         return balance;
     }
 
-    public String getIcon() {
+    public Icon getIcon() {
         return icon;
     }
 
@@ -68,7 +68,7 @@ public class User {
         this.balance = balance;
     }
 
-    public void setIcon(String icon) {
+    public void setIcon(Icon icon) {
         this.icon = icon;
     }
 
