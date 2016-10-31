@@ -24,7 +24,7 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public static ResultSet getAllUsers() {
+    public static ResultSet getAllDataUsers() {
         String query = "SELECT * FROM user";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
@@ -36,6 +36,22 @@ public class UserDAO {
             e.printStackTrace();
         }
         return rs;
+    }
+    
+        public static ResultSet getUserDataByNickName(String NickName){
+        
+        String query = "SELECT * FROM user where nickname = ?";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, NickName);
+            rs = stmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;  
     }
 
 }

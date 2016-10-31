@@ -87,4 +87,31 @@ public class Conversie {
         return users;
     }
 
+    public static User convertResultSetToUser(ResultSet rs) {
+
+        IconService iconService = new IconService();
+
+        int id = 0;
+        String nickName = null;
+        int balance = 0;
+        Icon icon = null;
+        User user = null;
+
+        try {
+            while (rs.next()) {
+                nickName = rs.getString("nickname");
+                balance = Integer.parseInt(rs.getString("balance"));
+
+                id = Integer.parseInt(rs.getString("id"));
+                icon = iconService.getIconById(id);
+
+                user = new User(nickName, balance, icon);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
 }

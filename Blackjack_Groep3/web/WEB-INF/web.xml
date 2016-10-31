@@ -12,9 +12,17 @@
         <servlet-name>AddUsersServlet</servlet-name>
         <servlet-class>controllers.gebruikers.AddUsersServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ResetChoiceServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.ResetChoiceServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
         <url-pattern>/AddUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetChoiceServlet</servlet-name>
+        <url-pattern>/ResetChoiceServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

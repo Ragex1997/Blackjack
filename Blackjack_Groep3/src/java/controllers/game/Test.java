@@ -5,6 +5,10 @@
  */
 package controllers.game;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.Icon;
+
 /**
  *
  * @author Anthony Lannoote
@@ -18,7 +22,8 @@ public class Test {
 
     //Voor het eventueel overlopen van de map met icons
     public static void main(String... args) {
-       
+    
+        
     }
 }
 

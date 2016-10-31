@@ -5,27 +5,20 @@
  */
 package controllers.gebruikers;
 
-import databank.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.User;
 
 /**
  *
  * @author Anthony Lannoote
  */
-public class AddUsersServlet extends HttpServlet {
+public class ResetChoiceServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -41,41 +34,8 @@ public class AddUsersServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            UserService userService = new UserService();
             HttpSession session = request.getSession();
-
-            List<User> usersForGame;
-            if ((List<User>) session.getAttribute("usersForGame") == null) {
-                usersForGame = new ArrayList<User>();
-            } else {
-                usersForGame = (List<User>) session.getAttribute("usersForGame");
-            }
-
-            String nickName = request.getParameter("user");
-
-            if(usersForGame.size() < 4){
-                usersForGame.add(userService.getUserByNickName(nickName));
-            }
-  
-            
-            List<User> usersChoice = new ArrayList<User>();
-            usersChoice = userService.getListOfUsers();
-
-            Iterator<User> it = usersChoice.iterator();
-            while(it.hasNext()){
-                User user = it.next();
-                
-                for(User u : usersForGame){
-                    if(user.getNickName().equals(u.getNickName())){
-                        it.remove();
-                    }
-                }     
-            }
-
-
-            session.setAttribute("usersChoice", usersChoice);
-            session.setAttribute("usersForGame", usersForGame);
-            request.setAttribute("selected", "yes");
+            session.invalidate();
             RequestDispatcher view = request.getRequestDispatcher("/game/userselection.jsp");
             view.forward(request, response);
 
