@@ -15,34 +15,59 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
+
         <h1>Add players</h1>
-        
-        <form action="...">
+
+        <form action="/Blackjack_Groep3/AddUsersServlet" method="post">
             <table border="1">
                 <tr>
                     <td>Select user</td><td>
-                        
+
                         <select name="user">
                             <%
                                 UserService persoonService = new UserService();
                                 List<User> users = persoonService.getListOfUsers();
                                 for (User u : users) {
 
-                                    out.print("<option value=" + u.getNickName()+ ">" + u.getNickName()+ " " + u.getIcon() + "</option>");
+                                    out.print("<option value=" + u.getNickName() + ">" + u.getNickName() + "</option>");
+
                                 }
-
-
                             %>
+
                         </select>
-                        
+
+
                     </td>
+                    <td><input type="submit" value="Add user"></td>
                 </tr>
-                
-                
             </table>
         </form>
-        
-        
+        <%
+            for (User u : users) {
+
+                out.print("<img src='" + u.getIcon().getLocation() + "' width='120' height='120'>");
+
+            }
+        %>
+
+        <table border="1">
+            <tr>
+                <th>User</th>
+                <th>Icon</th>
+            </tr>
+
+            <%
+                for (User u : users) {
+
+                    out.print("<tr>"
+                            + "<td>"+u.getNickName()+"</td>"
+                            + "<td><img src='" + u.getIcon().getLocation() + "' width='120' height='120'></td>"
+                            + "</tr>");
+
+                }
+            %>
+
+        </table>
+
     </body>
 </html>

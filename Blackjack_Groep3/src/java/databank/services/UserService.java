@@ -5,6 +5,8 @@
  */
 package databank.services;
 
+import databank.DAO.UserDAO;
+import databank.util.Conversie;
 import java.util.ArrayList;
 import java.util.List;
 import model.User;
@@ -17,7 +19,7 @@ public class UserService {
     
     public List<User> getListOfUsers(){
         
-        List<User>users = new ArrayList<User>();
+        List<User>users = Conversie.convertResultSetToListOfUsers(UserDAO.getAllUsers());
         
         return users;
     }

@@ -6,12 +6,10 @@
 package databank.util;
 
 import databank.services.IconService;
-import enums.GameStatus;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Hand;
 import model.Icon;
 import model.User;
 
