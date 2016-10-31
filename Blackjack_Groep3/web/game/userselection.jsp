@@ -30,6 +30,9 @@
                     <select name="user">
                         <%
 
+                            //Ophalen van users uit de DB of
+                            //het ophalen van users waar de al geselecteerde niet meet in zitten
+                            
                             String selected = "";
 
                             try {
@@ -72,13 +75,10 @@
 
 
     <table border="1">
-        <tr>
-            <th>User</th>
-            <th>Icon</th>
-        <tr>
+
 
             <%    
-                
+                //Tonen van de al geselecteerde users
                 if (selected.equals("yes")) {
                     
                     List<User> usersForGame = (List<User>) session.getAttribute("usersForGame");

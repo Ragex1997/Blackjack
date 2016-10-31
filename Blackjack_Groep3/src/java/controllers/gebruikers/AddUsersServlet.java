@@ -44,6 +44,7 @@ public class AddUsersServlet extends HttpServlet {
             UserService userService = new UserService();
             HttpSession session = request.getSession();
 
+            //Controleren of er al users zijn toegevoegd
             List<User> usersForGame;
             if ((List<User>) session.getAttribute("usersForGame") == null) {
                 usersForGame = new ArrayList<User>();
@@ -53,6 +54,7 @@ public class AddUsersServlet extends HttpServlet {
 
             String nickName = request.getParameter("user");
 
+            //Ervoor zorgen dat je niet meer dan 4 spelers kan hebben
             if(usersForGame.size() < 4){
                 usersForGame.add(userService.getUserByNickName(nickName));
             }
@@ -61,6 +63,8 @@ public class AddUsersServlet extends HttpServlet {
             List<User> usersChoice = new ArrayList<User>();
             usersChoice = userService.getListOfUsers();
 
+            //Het verwijderen van de users die al geselecteerd zijn
+            //Om een of andere reden werkte het niet om die met de LIST.removeAll(); methode te doen?
             Iterator<User> it = usersChoice.iterator();
             while(it.hasNext()){
                 User user = it.next();

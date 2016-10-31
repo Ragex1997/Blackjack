@@ -34,6 +34,7 @@ public class ResetChoiceServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            //Wissen van de users die al geselecteerd zijn
             HttpSession session = request.getSession();
             session.invalidate();
             RequestDispatcher view = request.getRequestDispatcher("/game/userselection.jsp");
