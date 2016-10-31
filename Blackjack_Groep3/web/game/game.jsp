@@ -4,6 +4,8 @@
     Author     : Anthony Lannoote
 --%>
 
+<%@page import="model.User"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -12,6 +14,13 @@
         <title>JSP Page</title>
     </head>
     <body>
+        
+        <%
+            
+            
+        
+        %>
+        
         <form>
             <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backGrounds/blackjacktable.png" width="1330" height="640"> </div>
 
@@ -32,30 +41,35 @@
 
                 </div>
             </div>
+            
+            <%
+                
+                List<User>users = (List<User>)session.getAttribute("usersForGame");
+                %>
 
-            <div id="player1" style="position: absolute; top: 200px; left: 50px;">
+            <div id="player1" style="position: absolute; top: 250px; left: 50px;">
                 <div id="card1" style="position: absolute; top: 0px; left: 0px;">
-                    <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
+                    <img src="" alt="" width="70" height="100"/>    
                 </div>
                 <div id="card2" style="position: absolute; top: 0px; left: 90px;">
-                    <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/FIVE.png" alt="" width="70" height="100"/>
+                    <img src="" alt="" width="70" height="100"/>
                 </div>
                 <div id="selectbet1" style="position: absolute; top: 110px; left: 0px;">
-                    <input type="number" name="bet" step="1" value="1" min="1" max="200" style="width: 40px;">
+                    <input type="number" name="bet" step="1" value="1" min="1" <%= "max='"+users.get(0).getBalance()+"'" %> style="width: 40px;">
                 </div>             
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
-                    <img src="\Blackjack_Groep3\rescources\icons\Yoda - 02.png" alt="" width="100" height="100"/>
+                    <img src="<%=users.get(0).getIcon().getLocation() %>" alt="" width="100" height="100"/>
                     <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
-                        <font color="white">Mark</font>
+                        <font color="white"><%=users.get(0).getNickName() %></font>
                     </div>
                 </div>
                 <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
                     <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
-                    <font color="white">23</font>
+                    <font color="white"><%=users.get(0).getBalance() %></font>
                 </div>
             </div> 
 
-            <div id="player2" style="position: absolute; top: 300px; left: 300px;">
+            <div id="player2" style="position: absolute; top: 350px; left: 400px;">
                 <div id="card3" style="position: absolute; top: 0px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
                 </div>
@@ -77,7 +91,7 @@
                 </div>
             </div>
 
-            <div id="player3" style="position: absolute; top: 350px; left: 600px;">
+            <div id="player3" style="position: absolute; top: 350px; left: 750px; <%="display: none;"%>">
                 <div id="card5" style="position: absolute; top: 0px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
                 </div>
@@ -99,29 +113,8 @@
                 </div>
             </div>
 
-            <div id="player3" style="position: absolute; top: 300px; left: 850px;">
-                <div id="card7" style="position: absolute; top: 0px; left: 0px;">
-                    <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
-                </div>
-                <div id="card8" style="position: absolute; top: 0px; left: 90px;">
-                    <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/FIVE.png" alt="" width="70" height="100"/>
-                </div>
-                <div id="selectbet4" style="position: absolute; top: 110px; left: 0px;">
-                    <input type="number" name="bet" step="1" value="1" min="1" max="200" style="width: 40px;">
-                </div>             
-                <div id="icon4" style="position: absolute; top: 150px; left: 0px;">
-                    <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
-                    <div id="playername4" style="position: absolute; top: 110px; left: 30px;">
-                        <font color="white">Mark</font>
-                    </div>
-                </div>  
-                <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
-                    <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
-                    <font color="white">23</font>
-                </div>
-            </div>
 
-            <div id="player4" style="position: absolute; top: 200px; left: 1100px;">
+            <div id="player4" style="position: absolute; top: 250px; left: 1100px; <%="display: none;"%>">
                 <div id="card9" style="position: absolute; top: 0px; left: 0px;">
                     <img src="/Blackjack_Groep3/rescources/playingCards/Clubs/ACE.png" alt="" width="70" height="100"/>    
                 </div>
@@ -144,7 +137,7 @@
             </div>
             
             <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
-                <img src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="" width="150" height="150"/>
+                <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
             </div>
 
         </form>

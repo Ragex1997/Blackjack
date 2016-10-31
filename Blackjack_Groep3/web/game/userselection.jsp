@@ -70,7 +70,7 @@
                 <td><input type="submit" name="adduser_sub" value="Add user"></td>
             </tr>
         </table>
-        <button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGame';">Play</button>
+        <button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';">Play</button>
     </form>
 
 
