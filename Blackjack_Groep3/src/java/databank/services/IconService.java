@@ -7,6 +7,7 @@ package databank.services;
 
 import databank.DAO.IconDAO;
 import databank.util.Conversie;
+import java.util.List;
 import javax.enterprise.context.Conversation;
 import model.Icon;
 
@@ -27,13 +28,8 @@ public class IconService {
         return icon;
     }
     
-    public void InsertIcon(Icon icon){
-        
-        String name = icon.getName();
-        String location = icon.getLocation();
-        
-        
-        
+    public void InsertIconList(List<Icon>icons){
+        IconDAO.InsertDataIcon(icons);
     }
     
 }

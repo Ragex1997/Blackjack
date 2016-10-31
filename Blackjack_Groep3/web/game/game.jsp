@@ -44,7 +44,7 @@
                     <input type="number" name="bet" step="1" value="1" min="1" max="200" style="width: 40px;">
                 </div>             
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
-                    <img src="/Blackjack_Groep3/rescources/icons/C3P3.png" alt="" width="100" height="100"/>
+                    <img src="\Blackjack_Groep3\rescources\icons\Yoda - 02.png" alt="" width="100" height="100"/>
                     <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
                         <font color="white">Mark</font>
                     </div>

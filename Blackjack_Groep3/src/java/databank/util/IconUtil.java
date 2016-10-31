@@ -3,36 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers.game;
+package databank.util;
 
 import databank.services.IconService;
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import model.Deck;
 import model.Icon;
 
 /**
  *
  * @author Anthony Lannoote
  */
-public class Test {
+public class IconUtil {
     
-    /**
-     * @param args the command line arguments
-     */
-        
-
-    //Voor het eventueel overlopen van de map met icons
-    public static void main(String... args) {
-        
-        
-
-        
-    }
-
-    public static void makeIconListFromFiles() {
+        public static void makeIconListFromFiles() {
         
         File[] files = new File("C:\\Develop\\BlackjackProject\\Blackjack\\Blackjack_Groep3\\web\\rescources\\icons").listFiles();
         List<Icon>icons = new ArrayList<Icon>();
@@ -52,6 +37,5 @@ public class Test {
         }
         iconService.InsertIconList(icons);
     }
+    
 }
-
-

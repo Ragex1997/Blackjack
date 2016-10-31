@@ -7,6 +7,7 @@ package databank.DAO;
 
 import databank.blackjackdb.DatabaseSingleton;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -27,10 +28,10 @@ public class UserDAO {
         String query = "SELECT * FROM user";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
+            stmt = con.prepareStatement(query);
+            rs = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }

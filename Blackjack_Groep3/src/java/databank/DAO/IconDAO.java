@@ -7,9 +7,13 @@ package databank.DAO;
 
 import databank.blackjackdb.DatabaseSingleton;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Iterator;
+import java.util.List;
+import model.Icon;
 
 /**
  *
@@ -25,22 +29,38 @@ public class IconDAO {
     
     public static ResultSet getIconById(int id){
         
-        String query = "SELECT name, location FROM icon where id = "+id;
+        String query = "SELECT name, location FROM icon where id = ?";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         try {
-            stmt = con.createStatement();
-            rs = stmt.executeQuery(query);
+            stmt = con.prepareStatement(query);
+            stmt.setInt(1, id);
+            rs = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;  
     }
     
-    public static void InsertDataIcon(String name, String location){
+    public static void InsertDataIcon(List<Icon>icons){
         
+        String query = "insert into icon(location, name) values(?,?)";
         
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            Iterator<Icon>it = icons.iterator();
+            while (it.hasNext()) {
+                Icon icon = it.next();
+                stmt.setString(1, icon.getLocation());
+                stmt.setString(2, icon.getName());
+                stmt.executeUpdate(); 
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();   
+        }
         
     }
     

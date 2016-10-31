@@ -4,6 +4,9 @@
     Author     : Xander
 --%>
 
+<%@page import="model.User"%>
+<%@page import="databank.services.UserService"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class = "select">
@@ -22,11 +25,11 @@
                         
                         <select name="user">
                             <%
-                                PersoonService persoonService = new PersoonService();
-                                List<Persoon> personen = persoonService.listOfPersons();
-                                for (Persoon p : personen) {
+                                UserService persoonService = new UserService();
+                                List<User> users = persoonService.getListOfUsers();
+                                for (User u : users) {
 
-                                    out.print("<option value=" + p.getRijksregisterNummer() + ">" + p.getVoornaam() + " " + p.getNaam() + "</option>");
+                                    out.print("<option value=" + u.getNickName()+ ">" + u.getNickName()+ " " + u.getIcon() + "</option>");
                                 }
 
 
