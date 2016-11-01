@@ -14,7 +14,7 @@ public class HeadUser extends User{
     private String password;
     private String email;
     
-    public HeadUser(String nickName, int balance, String icon, String password, String email) {
+    public HeadUser(String nickName, int balance, Icon icon, String password, String email) {
         super(nickName, balance, icon);
         this.password = password;
         this.email = email;

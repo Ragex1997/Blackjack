@@ -20,10 +20,10 @@ public class Card {
     private String cardImage;
     private String backImage;
 
-    public Card(Suit suit, Value value, String cardImage) {
+    public Card(Suit suit, Value value) {
         this.suit = suit;
         this.value = value;
-        this.cardImage = cardImage;
+        this.cardImage = "rescources/playingCards/" + suit.getSuit() + "/" + value.toString() + ".png";
         this.backImage = "rescources/playingCards/background.png";
     }
 

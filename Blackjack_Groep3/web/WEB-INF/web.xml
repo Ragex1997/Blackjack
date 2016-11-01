@@ -3,42 +3,68 @@
     <servlet>
         <servlet-name>test</servlet-name>
         <servlet-class>controllers.test</servlet-class>
-    </servlet>  
-
+    </servlet>
     <servlet>
         <servlet-name>GameTest</servlet-name>
         <servlet-class>controllers.game.GameTest</servlet-class>
     </servlet>
-
+    <servlet>
+        <servlet-name>AddUsersServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.AddUsersServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ResetChoiceServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.ResetChoiceServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PlayGame</servlet-name>
+        <servlet-class>controllers.game.PlayGame</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PlayGameServlet</servlet-name>
+        <servlet-class>controllers.game.PlayGameServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUsersServlet</servlet-name>
+        <url-pattern>/AddUsersServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ResetChoiceServlet</servlet-name>
+        <url-pattern>/ResetChoiceServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlayGame</servlet-name>
+        <url-pattern>/PlayGame</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlayGameServlet</servlet-name>
+        <url-pattern>/PlayGameServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30 
         </session-timeout>
     </session-config>
-    
     <login-config>
         <auth-method>BASIC</auth-method>
         <realm-name>"nog in te vullen"</realm-name>
-    </login-config> 
-    
+    </login-config>
     <security-role>
         <role-name>User</role-name>
     </security-role>
     <security-role>
         <role-name>MainUser</role-name>
     </security-role>
-    
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>MainUser</web-resource-name>
-            <description></description>
+            <description/>
             <url-pattern>/accountbeheer.jsp</url-pattern>
             <http-method>POST</http-method>
         </web-resource-collection>
         <auth-constraint>
-            <description />
+            <description/>
             <role-name>MainUser</role-name>
-        </auth-constraint>    
+        </auth-constraint>
     </security-constraint>
 </web-app>
-

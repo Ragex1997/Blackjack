@@ -4,6 +4,13 @@
     Author     : Xander
 --%>
 
+<%@page import="java.util.HashSet"%>
+<%@page import="java.util.Set"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.Collections"%>
+<%@page import="model.User"%>
+<%@page import="databank.services.UserService"%>
+<%@page import="java.util.List"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html class = "select">
@@ -11,8 +18,88 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
-    <body>
-        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
-        <h1>Hello World!</h1>
-    </body>
+
+
+    <h1>Add players</h1>
+
+    <form action="/Blackjack_Groep3/AddUsersServlet" method="post">
+        <table border="1">
+            <tr>
+                <td>Select user</td><td>
+
+                    <select name="user">
+                        <%
+
+                            //Ophalen van users uit de DB of
+                            //het ophalen van users waar de al geselecteerde niet meet in zitten
+                            
+                            String selected = "";
+
+                            try {
+                                selected = request.getAttribute("selected").toString();
+                            } catch (Exception e) {
+
+                            }
+                            List<User> users = null;
+                            if (selected.equals("yes")) {
+
+                                users = (List<User>) session.getAttribute("usersChoice");
+                            } else {
+                                UserService persoonService = new UserService();
+                                users = (List) persoonService.getListOfUsers();
+
+                            }
+
+                            for (User u : users) {
+
+                                out.print("<option value=" + u.getNickName() + ">" + u.getNickName() + "</option>");
+
+                            }
+
+
+                        %>
+
+                    </select>
+
+
+                </td>
+
+            </tr>
+            <tr>
+                <td><button type="button" name="reset_btn" onclick="window.location = '/Blackjack_Groep3/ResetChoiceServlet';">Reset</button></td>
+                <td><input type="submit" name="adduser_sub" value="Add user"></td>
+            </tr>
+        </table>
+        <button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';">Play</button>
+    </form>
+
+
+    <table border="1">
+
+
+            <%    
+                //Tonen van de al geselecteerde users
+                if (selected.equals("yes")) {
+                    
+                    List<User> usersForGame = (List<User>) session.getAttribute("usersForGame");
+                    
+                    out.print("<tr>"
+                            + "<th>User</th>"
+                            + "<th>Icon</th>"
+                            + "<tr>");
+                            
+                    for (User u : usersForGame) {
+                        out.print("<tr>"
+                                + "<td>" + u.getNickName() + "</td>"
+                                + "<td><img src='" + u.getIcon().getLocation() + "' width='120' height='120'></td>"
+                                + "</tr>");
+                    }
+                }
+
+
+            %>
+
+    </table>
+
+
 </html>

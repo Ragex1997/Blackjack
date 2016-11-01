@@ -12,13 +12,12 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Deck;
 
 /**
  *
  * @author Anthony Lannoote
  */
-public class GameTest extends HttpServlet {
+public class PlayGameServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,18 +32,24 @@ public class GameTest extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+//            String state = "betset";
+//            switch(state){
+//                case "betset":
+//                        
+//                        break;
+//                case "turnp1":
+//                    
+//                    break;
+//                case "turnp2":
+//                    
+//                    break;           
+//            }
+            
 
-            
-           // Game game = new Game(users);
-                        
-            Deck deck = new Deck();
-            
-            String location = deck.drawCard().getCardImage();
-
-            request.setAttribute("imagelocation", location);
-            
-            RequestDispatcher view = request.getRequestDispatcher("/game/gameTest.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("/game/game.jsp");
             view.forward(request, response);
+
         }
     }
 

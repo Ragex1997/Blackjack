@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controllers.game;
+package controllers.gebruikers;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -12,13 +12,13 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Deck;
+import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author Anthony Lannoote
  */
-public class GameTest extends HttpServlet {
+public class ResetChoiceServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,17 +34,12 @@ public class GameTest extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
-            
-           // Game game = new Game(users);
-                        
-            Deck deck = new Deck();
-            
-            String location = deck.drawCard().getCardImage();
-
-            request.setAttribute("imagelocation", location);
-            
-            RequestDispatcher view = request.getRequestDispatcher("/game/gameTest.jsp");
+            //Wissen van de users die al geselecteerd zijn
+            HttpSession session = request.getSession();
+            session.invalidate();
+            RequestDispatcher view = request.getRequestDispatcher("/game/userselection.jsp");
             view.forward(request, response);
+
         }
     }
 

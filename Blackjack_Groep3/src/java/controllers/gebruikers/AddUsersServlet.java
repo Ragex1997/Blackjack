@@ -5,20 +5,25 @@
  */
 package controllers.gebruikers;
 
+import databank.services.UserService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
-import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.User;
 
 /**
  *
- * @author Julie
+ * @author Anthony Lannoote
  */
-public class GebruikersToevoegenServlet extends HttpServlet {
+public class AddUsersServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,18 +38,50 @@ public class GebruikersToevoegenServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GebruikersToevoegenServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GebruikersToevoegenServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+
+            UserService userService = new UserService();
+            HttpSession session = request.getSession();
+
+            //Controleren of er al users zijn toegevoegd
+            List<User> usersForGame;
+            if ((List<User>) session.getAttribute("usersForGame") == null) {
+                usersForGame = new ArrayList<User>();
+            } else {
+                usersForGame = (List<User>) session.getAttribute("usersForGame");
+            }
+
+            String nickName = request.getParameter("user");
+
+            //Ervoor zorgen dat je niet meer dan 4 spelers kan hebben
+            if (usersForGame.size() < 4) {
+                usersForGame.add(userService.getUserByNickName(nickName));
+            }
+
+            List<User> usersChoice = userService.getListOfUsers();
+
+            //Het verwijderen van de users die al geselecteerd zijn
+            //Om een of andere reden werkte het niet om die met de LIST.removeAll(); methode te doen?
+            Iterator<User> it = usersChoice.iterator();
+            while (it.hasNext()) {
+                User user = it.next();
+
+                for (User u : usersForGame) {
+                    if (user.getNickName().equals(u.getNickName())) {
+                        it.remove();
+                    }
+                }
+            }
+
+            session.setAttribute("usersChoice", usersChoice);
+            session.setAttribute("usersForGame", usersForGame);
+            request.setAttribute("selected", "yes");
+            RequestDispatcher view = request.getRequestDispatcher("/game/userselection.jsp");
+            view.forward(request, response);
+
         }
     }
+
+
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**
@@ -72,20 +109,7 @@ public class GebruikersToevoegenServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String nickname = request.getParameter("nickname");
-        String icoonurl = request.getParameter("icoonurl");
-        String credits = request.getParameter("credits");
-        
-        ServletContext ct = getServletContext();
-        ct.setAttribute("nickname", nickname);
-        ct.setAttribute("icoon", icoonurl);
-        ct.setAttribute("credits", String.valueOf(credits));
-        
-        //nog in dbtabel zetten
-        
-        RequestDispatcher rq = request.getRequestDispatcher("");
-        rq.forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -97,5 +121,6 @@ public class GebruikersToevoegenServlet extends HttpServlet {
     public String getServletInfo() {
         return "Short description";
     }// </editor-fold>
+
 
 }

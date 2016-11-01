@@ -7,54 +7,51 @@ package databank.DAO;
 
 import databank.blackjackdb.DatabaseSingleton;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
  *
- * @author Julie
+ * @author Anthony Lannoote
  */
-public class BlackjackDAO {
+public class UserDAO {
 
-    private Connection connection;
+    private Connection connectie;
     private Statement statement;
 
-    public BlackjackDAO() {
-
+    public UserDAO() {
     }
 
-    //nog aanpassen naar stored procedures...
-    public static ResultSet selectUsers(String tabel, int where, String orderVeld) {
-
-        String query = "SELECT nickname, icon, balance FROM " + tabel + " WHERE userid =" + where;
+    public static ResultSet getAllDataUsers() {
+        String query = "SELECT * FROM user";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
-        Statement stmt = null;
-
+        PreparedStatement stmt = null;
         try {
-            stmt = con.createStatement();
-
-            rs = stmt.executeQuery(query);
+            stmt = con.prepareStatement(query);
+            rs = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
         return rs;
     }
-
-    public static ResultSet editUsers(String tabel, int where, String orderVeld) {
-        String query = "UPDATE nickname, icon, balance FROM " + tabel + "WHERE userid = " + where;
+    
+        public static ResultSet getUserDataByNickName(String NickName){
+        
+        String query = "SELECT * FROM user where nickname = ?";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
-        Statement stmt = null;
-
+        PreparedStatement stmt = null;
         try {
-            stmt = con.createStatement();
-
-            rs = stmt.executeQuery(query);
+            stmt = con.prepareStatement(query);
+            stmt.setString(1, NickName);
+            rs = stmt.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rs;
+        return rs;  
     }
+
 }

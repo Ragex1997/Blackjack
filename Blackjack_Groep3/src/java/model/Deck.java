@@ -10,61 +10,68 @@ import enums.Value;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  *
  * @author Anthony Lannoote
  */
 public class Deck {
-    
-    private List<Card>cards;
+
+    private List<Card> cards;
 
     public Deck() {
         this.cards = new ArrayList<Card>();
     }
-    
-    public void fillDeck(){
-        
+
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    public void setCards(List<Card> cards) {
+        this.cards = cards;
+    }
+
+    /**
+     * Deck word opgevuldt met alle 52 kaarten
+     */
+    public void fillDeck() {
+
         String suit;
         String value;
         String image;
-        
-        for(int i = 0 ; i < 52 ; i++){
-            for(Suit s : Suit.values()){
-                suit = s.getSuit();
-               
-                for(Value v : Value.values()){
-                    value = v.toString();
-                    image = "rescources/playingCards/"+suit+"/"+value+".png";
-                    this.cards.add(new Card(s, v, image));
-                }
+
+        for (Suit s : Suit.values()) {
+
+            for (Value v : Value.values()) {
+                this.cards.add(new Card(s, v));
             }
         }
     }
+
     /**
      * Het Deck wordt door elkaar geschudt
      */
-    public void shuffleDeck(){
+    public void shuffleDeck() {
         Collections.shuffle(this.cards);
     }
+
     /**
-     * Geeft de eerste kaart terug van het Deck(cards)
-     * en verwijderd deze
-     * @return 
+     * Geeft de eerste kaart terug van het Deck(cards) en verwijderd deze
+     *
+     * @return
      */
-    public Card drawCard(){    
+    public Card drawCard() {
         Card card = this.cards.get(0);
         removeCard(card);
         return card;
     }
-    
-    public void removeCard(Card card){
+
+    private void removeCard(Card card) {
         this.cards.remove(card);
     }
-    
-    public void addCard(Card card){
+
+    public void addCard(Card card) {
         this.cards.add(card);
     }
-    
+
 }

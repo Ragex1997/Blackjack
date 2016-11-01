@@ -5,14 +5,16 @@
  */
 package controllers.game;
 
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+import model.Icon;
 
 /**
  *
  * @author Anthony Lannoote
  */
 public class Test {
-
+    
     /**
      * @param args the command line arguments
      */
@@ -20,19 +22,8 @@ public class Test {
 
     //Voor het eventueel overlopen van de map met icons
     public static void main(String... args) {
-        File[] files = new File("C:\\Develop\\BlackjackProject\\Blackjack\\Blackjack_Groep3\\web\\rescources\\icons").listFiles();
-        showFiles(files);
-    }
-
-    public static void showFiles(File[] files) {
-        for (File file : files) {
-            if (file.isDirectory()) {
-                System.out.println("Directory: " + file.getName());
-                showFiles(file.listFiles()); // Calls same method again.
-            } else {
-                System.out.println("File: " + file.getName());
-            }
-        }
+    
+        
     }
 }
 

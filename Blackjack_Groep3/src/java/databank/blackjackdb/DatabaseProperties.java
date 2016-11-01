@@ -10,7 +10,7 @@ package databank.blackjackdb;
  * @author Julie
  */
 public class DatabaseProperties {
-    public static final String HOSTNAME = "jdbc:mysql://localhost:3306/bieren";
+    public static final String HOSTNAME = "jdbc:mysql://localhost:3306/blackjack";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "Adm1234";
+    public static final String PASSWORD = "azerty";
 }
