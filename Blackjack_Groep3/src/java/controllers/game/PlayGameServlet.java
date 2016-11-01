@@ -14,7 +14,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import model.Deck;
 import model.Game;
 import model.User;
 
@@ -53,6 +52,9 @@ public class PlayGameServlet extends HttpServlet {
             }
 
             switch (turn) {
+                case 0:
+                    
+                    break;
                 case 1:
                     List<User> users = game.getUsers();
 
