@@ -1,9 +1,11 @@
+<%-- 
+    Document   : gebruikertoevoegen
+    Created on : 1-nov-2016, 9:58:38
+    Author     : Xander
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html class="useradd">
     <head>
         <title>gebruiker toevoegen</title>
@@ -12,10 +14,7 @@ and open the template in the editor.
     </head>
     <body>
         <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
-        <h1>voeg een gebruiker toe</h1>
-        
-            <link rel="stylesheet" href=".../Opmaak.css" type="text/css" />
-        
+        <h1>voeg een gebruiker toe</h1>   
         <br>                                
             <div align="center">                
             <form action="GebruikerToevoegenServlet" method="post">

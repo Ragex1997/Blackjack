@@ -16,7 +16,9 @@
         <!--
         aantalGebruikers = 
         -->
+        
         <h1>Accountbeheer</h1>
+
         <table>
             <tr>
                 <th>Nickname</th>
