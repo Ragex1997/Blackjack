@@ -5,6 +5,10 @@
         <servlet-class>controllers.test</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>LogOut</servlet-name>
+        <servlet-class>LogOut</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GameTest</servlet-name>
         <servlet-class>controllers.game.GameTest</servlet-class>
     </servlet>
@@ -33,6 +37,10 @@
         <url-pattern>/ResetChoiceServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
+        <servlet-name>LogOut</servlet-name>
+        <url-pattern>/LogOut</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
         <servlet-name>PlayGame</servlet-name>
         <url-pattern>/PlayGame</url-pattern>
     </servlet-mapping>
@@ -46,25 +54,44 @@
         </session-timeout>
     </session-config>
     <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>"nog in te vullen"</realm-name>
+        <auth-method>FORM</auth-method>
+        <realm-name>BlackjackRealm</realm-name>
+        <form-login-config>
+            <form-login-page>/loginpagina.jsp</form-login-page>
+            <form-error-page>/LogOut</form-error-page>
+        </form-login-config>
     </login-config>
+    
     <security-role>
-        <role-name>User</role-name>
+        <description/>
+        <role-name>users</role-name>
     </security-role>
     <security-role>
-        <role-name>MainUser</role-name>
+        <description/>
+        <role-name>admins</role-name>
     </security-role>
+    
     <security-constraint>
+        <display-name>admins</display-name>
         <web-resource-collection>
-            <web-resource-name>MainUser</web-resource-name>
+            <web-resource-name>admins</web-resource-name>
             <description/>
-            <url-pattern>/accountbeheer.jsp</url-pattern>
+            <url-pattern>/gebruikerstoevoegen.jsp</url-pattern>
+            <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>
+        </web-resource-collection>    
         <auth-constraint>
             <description/>
-            <role-name>MainUser</role-name>
+            <role-name>admins</role-name>
         </auth-constraint>
     </security-constraint>
+    
+    <error-page>
+        <error-code>403</error-code>
+        <location>/LogOut</location>
+    </error-page>
+    <error-page>
+        <error-code>401</error-code>
+        <location>/LogOut</location>
+    </error-page>
 </web-app>

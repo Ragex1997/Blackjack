@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE glassfish-web-app PUBLIC "-//GlassFish.org//DTD GlassFish Application Server 3.1 Servlet 3.0//EN" "http://glassfish.org/dtds/glassfish-web-app_3_0-1.dtd">
 <glassfish-web-app error-url="">
+    
+    <security-role-mapping>
+        <role-name>users</role-name>
+        <group-name>users</group-name>
+    </security-role-mapping>
+    
+    <security-role-mapping>
+        <role-name>admins</role-name>
+        <group-name>admins</group-name>
+    </security-role-mapping>
+    
   <class-loader delegate="true"/>
+  <context-root>/Blackjack_Groep3</context-root>
   <jsp-config>
     <property name="keepgenerated" value="true">
       <description>Keep a copy of the generated servlet class' java code.</description>
-      
-    <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>"nog in te vullen"</realm-name>
-    </login-config> 
-
-    <security-role-mapping>
-        <role-name>User</role-name>
-        <group-name>User</group-name>
-    </security-role-mapping>
-    <security-role-mapping>
-        <role-name>MainUser</role-name>
-        <group-name>MainUser</group-name>
-    </security-role-mapping>
     
     </property>
   </jsp-config>
