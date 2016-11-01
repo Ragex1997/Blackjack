@@ -18,6 +18,7 @@ public class Dealer {
     public Dealer(int minStand) {
         this.minStand = minStand;
         this.icon = new Icon("Java the Hutt", "/Blackjack_Groep3/rescources/icons/Java the Hutt.png");
+        this.hand = new Hand();
     }
 
     public int getMinStand() {

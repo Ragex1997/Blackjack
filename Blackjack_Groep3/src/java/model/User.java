@@ -25,6 +25,7 @@ public class User {
         this.balance = balance;
         this.icon = icon;
         this.bet = 1;
+        this.hand = new Hand();
     }
     
     

@@ -38,7 +38,6 @@ public class Game {
     public Dealer getDealer() {
         return dealer;
     }
-    
 
     /**
      * De kaarten worden verdeeld onder de dealer en de spelers
@@ -48,10 +47,10 @@ public class Game {
         //Ze krijgen er elk 2
         while (dealer.getHand().getCards().size() < 2) {
             dealer.addCard(deck.drawCard());
+        }
 
-            for (User u : users) {
-                u.addCard(deck.drawCard());
-            }
+        for (User u : users) {
+            u.addCard(deck.drawCard());
         }
     }
 
@@ -129,11 +128,11 @@ public class Game {
                 payout = (int) (u.getBet() * 2.5);
                 u.addPayout(payout);
             } else if (evaluateUserWin(u)) {
-                payout = (int)(u.getBet()) * 2;
+                payout = (int) (u.getBet()) * 2;
                 u.addPayout(payout);
 
-            }else if(evaluteUserPush(u)){
-                payout = (int)(u.getBet());
+            } else if (evaluteUserPush(u)) {
+                payout = (int) (u.getBet());
                 u.addPayout(payout);
             }
         }

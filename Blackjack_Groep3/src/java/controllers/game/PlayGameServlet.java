@@ -49,6 +49,7 @@ public class PlayGameServlet extends HttpServlet {
             Integer turn = (Integer) session.getAttribute("turn");
             if (turn == null) {
                 turn = 0;
+                session.setAttribute("turn", turn);
             }
 
             switch (turn) {
@@ -74,7 +75,8 @@ public class PlayGameServlet extends HttpServlet {
                             }
                         }
                     }
-                    game.getDeck();
+
+                    game.getDeck().fillDeck();
                     game.cardDistribution();
                     break;
                 case 2:

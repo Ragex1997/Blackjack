@@ -31,23 +31,28 @@
 
         %>
 
-        <form>
+        
+        <form action="/Blackjack_Groep3/PlayGameServlet" method="post">
             <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="640"> </div>
 
             <div id="dealer" style="position: absolute; top: 30px; left: 580px;">
 
                 <div id="dealericon" style="position: absolute; top: 50px; left: 160px;">
-                    <img src="<%=dealer.getIcon().getLocation() %>" width="200" height="200"> 
+                    <img src="<%=dealer.getIcon().getLocation()%>" width="200" height="200"> 
                     <div id="dealername" style="position: absolute; top: 180px; left: 40px;">
                         <font color="white">Jabba The Dealer</font>
                     </div>
                 </div>
 
                 <div id="card1" style="position: absolute; top: 100px; left: 0px;">
-                    <img src="" alt="" width="70" height="100"/>    
+                    <img src="<% if (turn > 1) {
+                            dealer.getHand().getCards().get(0);
+                        }%>" alt="" width="70" height="100"/>    
                 </div>
                 <div id="card2" style="position: absolute; top: 100px; left: 90px;">
-                    <img src="" alt="" width="70" height="100"/>
+                    <img src="<% if (turn > 1) {
+                            dealer.getHand().getCards().get(1);
+                        }%>" alt="" width="70" height="100"/>
 
                 </div>
             </div>
@@ -55,10 +60,14 @@
 
             <div id="player1" style="position: absolute; top: 250px; left: 50px;">
                 <div id="card1" style="position: absolute; top: 0px; left: 0px;">
-                    <img src="" alt="" width="70" height="100"/>    
+                    <img src="<% if (turn > 1) {
+                            users.get(0).getHand().getCards().get(0);
+                        }%>" alt="" width="70" height="100"/>    
                 </div>
                 <div id="card2" style="position: absolute; top: 0px; left: 90px;">
-                    <img src="" alt="" width="70" height="100"/>
+                    <img src="<% if (turn > 1) {
+                            users.get(0).getHand().getCards().get(1);
+                        }%>" alt="" width="70" height="100"/>
                 </div>
                 <div id="selectbet1" style="position: absolute; top: 110px; left: 0px;">
                     <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(0).getBalance() + "'"%> style="width: 40px;">
@@ -66,19 +75,21 @@
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
                     <img src="<%=users.get(0).getIcon().getLocation()%>" alt="" width="100" height="100"/>
                     <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
-                        <font color="white"><%=users.get(0).getNickName %></font>
+                        <font color="white"><%=users.get(0).getNickName()%></font>
                     </div>
                 </div>
                 <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
                     <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
-                    <font color="white"><%=users.get(0).getBalance() %></font>
+                    <font color="white"><%=users.get(0).getBalance()%></font>
                 </div>
-            </div> 
+            </div>        
+            <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
+                <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
+                <font color="black"><%=turn%></font>
+            </div>
         </form>
 
-        <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
-            <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
-        </div>
+
 
 
     </body>
