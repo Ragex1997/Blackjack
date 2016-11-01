@@ -24,6 +24,7 @@ public class User {
         this.nickName = nickName;
         this.balance = balance;
         this.icon = icon;
+        this.bet = 1;
     }
     
     
@@ -78,7 +79,7 @@ public class User {
 
     public void setBet(int bet) {
         this.bet = bet;
-        this.balance =- this.bet;
+        this.balance -= this.bet;
     }
 
     public void setGameStatus(GameStatus gameStatus) {

@@ -12,15 +12,22 @@ package model;
 public class Dealer {
 
     private int minStand;
-    private int maxStand;
-    private String icon;
+    private Icon icon;
     private Hand hand;
 
-    public Dealer(int minStand, int maxStand, String icon) {
+    public Dealer(int minStand) {
         this.minStand = minStand;
-        this.maxStand = maxStand;
-        this.icon = icon;
+        this.icon = new Icon("Java the Hutt", "/Blackjack_Groep3/rescources/icons/Java the Hutt.png");
     }
+
+    public int getMinStand() {
+        return minStand;
+    }
+
+    public Icon getIcon() {
+        return icon;
+    }
+    
     
     public void addCard(Card card){
         this.hand.addCard(card);

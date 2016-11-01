@@ -23,8 +23,21 @@ public class Game {
 
     public Game(List<User> users) {
         this.users = new ArrayList<User>(users);
+        this.dealer = new Dealer(17);
+        this.deck = new Deck();
     }
-  
+
+    public Deck getDeck() {
+        return deck;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public Dealer getDealer() {
+        return dealer;
+    }
     
 
     /**
