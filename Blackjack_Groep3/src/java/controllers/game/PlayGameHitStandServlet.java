@@ -13,7 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.Card;
 import model.Game;
+import model.User;
 
 /**
  *
@@ -37,28 +39,50 @@ public class PlayGameHitStandServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             Game game = (Game) session.getAttribute("game");
+            
+            String nickname = request.getParameter("user");
+            String action = request.getParameter("action");
+            int userturn = (Integer) session.getAttribute("userturn");
+            
+            User user = game.getUsers().get(userturn);
+            
+            if(action.equals("hit")){
+                game.playerHit(user);
+            }else if(action.equals("stand")){
+                game.playerStand(user);
+                ++userturn;
+            }else{
+                out.print("ERROR");
+            }
+            out.print(nickname);
+            out.print(action);
+            for(Card c : user.getHand().getCards()){
+                out.println(c.getCardImage());
+            }
+            
+            
 
             //Ik heb voor iedere mogelijkheid van de hoeveelheid spelers een jsp pagina gemaakt
             //Want anders ging ik moeten mijn html code in scriptlet code zetten wat wss nog onoverzichtelijker zou zijn
             RequestDispatcher view;
-//            switch (game.getUsers().size()) {
-//                case 1:
-//                    view = request.getRequestDispatcher("/game/game1p.jsp");
-//                    view.forward(request, response);
-//                    break;
-//                case 2:
-//                    view = request.getRequestDispatcher("/game/game1p.jsp");
-//                    view.forward(request, response);
-//                    break;
-//                case 3:
-//                    view = request.getRequestDispatcher("/game/game3p.jsp");
-//                    view.forward(request, response);
-//                    break;
-//                case 4:
-//                    view = request.getRequestDispatcher("/game/game4p.jsp");
-//                    view.forward(request, response);
-//                    break;
-//            }
+            switch (game.getUsers().size()) {
+                case 1:
+                    view = request.getRequestDispatcher("/game/game1p.jsp");
+                    view.forward(request, response);
+                    break;
+                case 2:
+                    view = request.getRequestDispatcher("/game/game1p.jsp");
+                    view.forward(request, response);
+                    break;
+                case 3:
+                    view = request.getRequestDispatcher("/game/game3p.jsp");
+                    view.forward(request, response);
+                    break;
+                case 4:
+                    view = request.getRequestDispatcher("/game/game4p.jsp");
+                    view.forward(request, response);
+                    break;
+            }
 
         }
     }

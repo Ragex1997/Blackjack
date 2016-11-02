@@ -45,6 +45,7 @@ public class PlayGameServlet extends HttpServlet {
             if (turn == null) {
                 turn = 0;
                 session.setAttribute("turn", turn);
+                session.setAttribute("userturn", 0);
             } else {
                 turn++;
                 session.setAttribute("turn", turn);

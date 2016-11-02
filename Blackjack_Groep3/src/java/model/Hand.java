@@ -20,6 +20,7 @@ public class Hand {
 
     private List<Card> cards;
     private HandStatus status;
+    private int value;
 
     public Hand() {
         this.cards = new ArrayList<Card>();
@@ -51,7 +52,9 @@ public class Hand {
 
 
     public int getValue() {
-        return calculateValue();
+        this.value = calculateValue();
+        this.evaluate();
+        return this.value;
     }
 
     public HandStatus getStatus() {
@@ -70,17 +73,16 @@ public class Hand {
         while (IterCard.hasNext()) {
             Card card = IterCard.next();
 
-            value = +card.getValue().getNumVal();
+            value += card.getValue().getNumVal();
             
             if (card.getValue().equals(ACE)) {
-                ace++;
+                ++ace;
             }
             if (value > 21 && ace > 0) {
-                value = - 10;
-                ace--;
+                value -= 10;
+                --ace;
             }
         }
-        this.evaluate();
         return value;
     }
     
@@ -90,7 +92,7 @@ public class Hand {
      */
     private HandStatus evaluate() {
         HandStatus status = null;
-        int value = this.getValue();
+        int value = this.value;
         if (value > 21) {
             status = BUSTED;
         } else if (value == 21 && cards.size() == 2) {

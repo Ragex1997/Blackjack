@@ -37,6 +37,9 @@ public class Test {
         System.out.println(users.get(0).getHand().getCards().get(0).getCardImage());
         System.out.println(users.get(0).getHand().getCards().get(1).getCardImage());
         
+        int a = 10;
+        System.out.println(a-=5);
+        
     }
 }
 

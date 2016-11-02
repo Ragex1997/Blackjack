@@ -24,8 +24,8 @@
             Game game = (Game) session.getAttribute("game");
 
             int turn = (Integer) (session.getAttribute("turn"));
+            int userturn = (Integer) (session.getAttribute("userturn"));
 
-            int players = game.getUsers().size();
             List<User> users = game.getUsers();
             Dealer dealer = game.getDealer();
 
@@ -68,14 +68,15 @@
 
 
             <div id="player1" style="position: absolute; top: 250px; left: 50px;">
-                <%                    List<Card> cards = users.get(0).getHand().getCards();
+                <%                    
+                    List<Card> cards = users.get(0).getHand().getCards();
                     positionleft = 0;
                     for (Card c : cards) {
 
                         out.print("<div style='position: absolute; top: 0px; left: " + positionleft + "px'>");
                         out.print("<img src='" + c.getCardImage() + "' width='70' height='100'/>");
                         out.print("</div>");
-                        positionleft = +90;
+                        positionleft += 20;
                     }
 
                 %>
@@ -104,20 +105,24 @@
                 <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
                 <font color="black"><%=turn%></font>
             </div>
+            
         </form>
             
             <%
+                //vragen of de speler wil hitten of standen.
+                
                 String visibility = "";
-                if(turn > 0){
+                if(turn < 1){
                     visibility = "hidden";
                 }
             %>
 
+            
             <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
             <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility %>;">
                 <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
                 <div style="position: absolute; top: 50px; left: 50px;">
-                    <input type="text" name="player" value="<%=users.get(0).getNickName() %>" readonly>
+                    <input type="text" name="user" value="<%=users.get(userturn).getNickName() %>" readonly>
                     <input type="submit" name="action" value="stand">
                     <input type="submit" name="action" value="hit">
                 </div>
