@@ -28,6 +28,10 @@
         <servlet-name>PlayGameServlet</servlet-name>
         <servlet-class>controllers.game.PlayGameServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PlayGameHitStandServlet</servlet-name>
+        <servlet-class>controllers.game.PlayGameHitStandServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
         <url-pattern>/AddUsersServlet</url-pattern>
@@ -48,6 +52,10 @@
         <servlet-name>PlayGameServlet</servlet-name>
         <url-pattern>/PlayGameServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlayGameHitStandServlet</servlet-name>
+        <url-pattern>/PlayGameHitStandServlet</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30 
@@ -61,7 +69,6 @@
             <form-error-page>/LogOut</form-error-page>
         </form-login-config>
     </login-config>
-    
     <security-role>
         <description/>
         <role-name>users</role-name>
@@ -70,7 +77,6 @@
         <description/>
         <role-name>admins</role-name>
     </security-role>
-    
     <security-constraint>
         <display-name>admins</display-name>
         <web-resource-collection>
@@ -79,13 +85,12 @@
             <url-pattern>/gebruikerstoevoegen.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
-        </web-resource-collection>    
+        </web-resource-collection>
         <auth-constraint>
             <description/>
             <role-name>admins</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <error-page>
         <error-code>403</error-code>
         <location>/LogOut</location>

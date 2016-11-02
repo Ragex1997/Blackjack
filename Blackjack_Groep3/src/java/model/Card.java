@@ -24,7 +24,8 @@ public class Card {
         this.suit = suit;
         this.value = value;
         this.cardImage = "rescources/playingCards/" + suit.getSuit() + "/" + value.toString() + ".png";
-        this.backImage = "rescources/playingCards/background.png";
+        this.backImage = "rescources/playingCards/playingcardback.png";
+        this.visable = true;
     }
 
     public Value getValue() {

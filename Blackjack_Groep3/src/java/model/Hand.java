@@ -24,6 +24,14 @@ public class Hand {
     public Hand() {
         this.cards = new ArrayList<Card>();
     }
+    
+    public void setSecondCardInvisible(){
+        this.cards.get(1).setVisable(false);
+    }
+    
+    public void setSecondCardVisible(){
+        this.cards.get(1).setVisable(true);
+    }
 
     public void setStatus(HandStatus status) {
         this.status = status;

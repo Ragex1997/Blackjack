@@ -47,11 +47,11 @@ public class Game {
         //Ze krijgen er elk 2
         while (dealer.getHand().getCards().size() < 2) {
             dealer.addCard(deck.drawCard());
+            for (User u : users) {
+                u.addCard(deck.drawCard());
+            }
         }
 
-        for (User u : users) {
-            u.addCard(deck.drawCard());
-        }
     }
 
     /**

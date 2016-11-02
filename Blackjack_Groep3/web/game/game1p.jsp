@@ -4,6 +4,8 @@
     Author     : Anthony Lannoote
 --%>
 
+<%@page import="model.Card"%>
+<%@page import="model.Hand"%>
 <%@page import="databank.util.Handler"%>
 <%@page import="model.Dealer"%>
 <%@page import="model.User"%>
@@ -22,8 +24,6 @@
             Game game = (Game) session.getAttribute("game");
 
             int turn = (Integer) (session.getAttribute("turn"));
-            turn++;
-            session.setAttribute("turn", turn);
 
             int players = game.getUsers().size();
             List<User> users = game.getUsers();
@@ -31,9 +31,10 @@
 
         %>
 
-        
+
         <form action="/Blackjack_Groep3/PlayGameServlet" method="post">
             <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="640"> </div>
+
 
             <div id="dealer" style="position: absolute; top: 30px; left: 580px;">
 
@@ -44,31 +45,42 @@
                     </div>
                 </div>
 
-                <div id="card1" style="position: absolute; top: 100px; left: 0px;">
-                    <img src="<% if (turn > 1) {
-                            dealer.getHand().getCards().get(0);
-                        }%>" alt="" width="70" height="100"/>    
-                </div>
-                <div id="card2" style="position: absolute; top: 100px; left: 90px;">
-                    <img src="<% if (turn > 1) {
-                            dealer.getHand().getCards().get(1);
-                        }%>" alt="" width="70" height="100"/>
+                <%
+                    List<Card> cardsDealer = dealer.getHand().getCards();
+                    int positionleft = 0;
+                    for (Card c : cardsDealer) {
 
-                </div>
+                        out.print("<div style='position: absolute; top: 100px; left: " + positionleft + "px'>");
+
+                        if (c.getVisable()) {
+                            out.print("<img src='" + c.getCardImage() + "' width='70' height='100'/>");
+                        } else {
+                            out.print("<img src='" + c.getBackImage() + "' width='70' height='100'/>");
+                        }
+
+                        out.print("</div>");
+                        positionleft = +90;
+                    }
+
+                %>
+
             </div>
 
 
             <div id="player1" style="position: absolute; top: 250px; left: 50px;">
-                <div id="card1" style="position: absolute; top: 0px; left: 0px;">
-                    <img src="<% if (turn > 1) {
-                            users.get(0).getHand().getCards().get(0);
-                        }%>" alt="" width="70" height="100"/>    
-                </div>
-                <div id="card2" style="position: absolute; top: 0px; left: 90px;">
-                    <img src="<% if (turn > 1) {
-                            users.get(0).getHand().getCards().get(1);
-                        }%>" alt="" width="70" height="100"/>
-                </div>
+                <%                    List<Card> cards = users.get(0).getHand().getCards();
+                    positionleft = 0;
+                    for (Card c : cards) {
+
+                        out.print("<div style='position: absolute; top: 0px; left: " + positionleft + "px'>");
+                        out.print("<img src='" + c.getCardImage() + "' width='70' height='100'/>");
+                        out.print("</div>");
+                        positionleft = +90;
+                    }
+
+                %>
+
+
                 <div id="selectbet1" style="position: absolute; top: 110px; left: 0px;">
                     <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(0).getBalance() + "'"%> style="width: 40px;">
                 </div>             
@@ -82,12 +94,38 @@
                     <img src="/Blackjack_Groep3/rescources/icons/currency.jpg" alt="" width="80" height="60"/>
                     <font color="white"><%=users.get(0).getBalance()%></font>
                 </div>
-            </div>        
+            </div>  
+
+
+
+
+
             <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
                 <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
                 <font color="black"><%=turn%></font>
             </div>
         </form>
+            
+            <%
+                String visibility = "";
+                if(turn > 0){
+                    visibility = "hidden";
+                }
+            %>
+
+            <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
+            <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility %>;">
+                <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
+                <div style="position: absolute; top: 50px; left: 50px;">
+                    <input type="text" name="player" value="<%=users.get(0).getNickName() %>" readonly>
+                    <input type="submit" name="action" value="stand">
+                    <input type="submit" name="action" value="hit">
+                </div>
+
+            </div>
+        </form>
+
+
 
 
 

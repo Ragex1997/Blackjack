@@ -40,74 +40,76 @@ public class PlayGameServlet extends HttpServlet {
             HttpSession session = request.getSession();
 
             Game game = (Game) session.getAttribute("game");
-            if (game == null) {
-                List<User> users = (List<User>) session.getAttribute("usersForGame");
-                game = new Game(users);
-                session.setAttribute("game", game);
-            }
 
             Integer turn = (Integer) session.getAttribute("turn");
             if (turn == null) {
                 turn = 0;
                 session.setAttribute("turn", turn);
+            } else {
+                turn++;
+                session.setAttribute("turn", turn);
             }
 
-            switch (turn) {
-                case 0:
-                    
-                    break;
-                case 1:
-                    List<User> users = game.getUsers();
+            if (turn == 0) {
 
-                    if (users.size() > 0) {
-                        int bet1 = Integer.parseInt(request.getParameter("bet1"));
-                        users.get(0).setBet(bet1);
-                        if (users.size() > 1) {
-                            int bet2 = Integer.parseInt(request.getParameter("bet2"));
-                            users.get(1).setBet(bet2);
-                            if (users.size() > 2) {
-                                int bet3 = Integer.parseInt(request.getParameter("bet3"));
-                                users.get(2).setBet(bet3);
-                                if (users.size() > 4) {
-                                    int bet4 = Integer.parseInt(request.getParameter("bet4"));
-                                    users.get(3).setBet(bet4);
-                                }
+                if (game == null) {
+                    List<User> users = (List<User>) session.getAttribute("usersForGame");
+                    game = new Game(users);
+                    session.setAttribute("game", game);
+                }
+
+            } else if (turn == 1) {
+
+                List<User> users = game.getUsers();
+
+                if (users.size() > 0) {
+                    int bet1 = Integer.parseInt(request.getParameter("bet1"));
+                    users.get(0).setBet(bet1);
+                    if (users.size() > 1) {
+                        int bet2 = Integer.parseInt(request.getParameter("bet2"));
+                        users.get(1).setBet(bet2);
+                        if (users.size() > 2) {
+                            int bet3 = Integer.parseInt(request.getParameter("bet3"));
+                            users.get(2).setBet(bet3);
+                            if (users.size() > 4) {
+                                int bet4 = Integer.parseInt(request.getParameter("bet4"));
+                                users.get(3).setBet(bet4);
                             }
                         }
                     }
+                }
 
-                    game.getDeck().fillDeck();
-                    game.cardDistribution();
-                    break;
-                case 2:
-
-                    break;
-                case 3:
-
-                    break;
+                game.getDeck().fillDeck();
+                game.getDeck().shuffleDeck();
+                game.cardDistribution();
+                game.getDealer().getHand().setSecondCardInvisible();
             }
 
-            //Ik heb voor iedere mogelijkheid van de hoeveelheid spelers een jsp pagina gemaakt
-            //Want anders ging ik moeten mijn html code in scriptlet code zetten wat wss nog onoverzichtelijker zou zijn
-            RequestDispatcher view;
-            switch (game.getUsers().size()) {
-                case 1:
-                    view = request.getRequestDispatcher("/game/game1p.jsp");
-                    view.forward(request, response);
-                    break;
-                case 2:
-                    view = request.getRequestDispatcher("/game/game2p.jsp");
-                    view.forward(request, response);
-                    break;
-                case 3:
-                    view = request.getRequestDispatcher("/game/game3p.jsp");
-                    view.forward(request, response);
-                    break;
-                case 4:
-                    view = request.getRequestDispatcher("/game/game4p.jsp");
-                    view.forward(request, response);
-                    break;
+            if (turn > 1) {
+                response.sendRedirect("PlayGameHitStandServlet");
+            } else {
 
+                //Ik heb voor iedere mogelijkheid van de hoeveelheid spelers een jsp pagina gemaakt
+                //Want anders ging ik moeten mijn html code in scriptlet code zetten wat wss nog onoverzichtelijker zou zijn
+                RequestDispatcher view;
+                switch (game.getUsers().size()) {
+                    case 1:
+                        view = request.getRequestDispatcher("/game/game1p.jsp");
+                        view.forward(request, response);
+                        break;
+                    case 2:
+                        view = request.getRequestDispatcher("/game/game1p.jsp");
+                        view.forward(request, response);
+                        break;
+                    case 3:
+                        view = request.getRequestDispatcher("/game/game3p.jsp");
+                        view.forward(request, response);
+                        break;
+                    case 4:
+                        view = request.getRequestDispatcher("/game/game4p.jsp");
+                        view.forward(request, response);
+                        break;
+                }
             }
 
         }
