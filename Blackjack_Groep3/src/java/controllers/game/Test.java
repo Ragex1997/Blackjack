@@ -6,6 +6,8 @@
 package controllers.game;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
+import enums.HandStatus;
+import static enums.HandStatus.BUSTED;
 import java.util.ArrayList;
 import java.util.List;
 import model.Game;
@@ -34,12 +36,16 @@ public class Test {
         game.getDeck().shuffleDeck();
         game.cardDistribution();
         
-        System.out.println(users.get(0).getHand().getCards().get(0).getCardImage());
-        System.out.println(users.get(0).getHand().getCards().get(1).getCardImage());
+
+        users.get(0).getHand().setStatus(BUSTED);
         
-        int a = 10;
-        System.out.println(a-=5);
-        
+        if(users.get(0).getHand().getStatus().equals(BUSTED)){
+            System.out.println("Busted");
+            System.out.println(users.get(0).getHand().getStatus());
+        }else{
+            System.out.println("not busted");
+            System.out.println(users.get(0).getHand().getStatus());
+        }
     }
 }
 

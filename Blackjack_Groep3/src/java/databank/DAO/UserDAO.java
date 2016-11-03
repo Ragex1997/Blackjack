@@ -53,5 +53,19 @@ public class UserDAO {
         }
         return rs;  
     }
+        
+        public static void updateUserBalanceByNickName(String nickName, int balance){
+            String query = "UPDATE user SET balance = "+ balance +" where user.nickname = '"+nickName+"'";
+            Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+            ResultSet rs = null;
+            Statement stmt = null;
+            
+//            try {
+//                    
+//                } catch (SQLException e) {
+//                    
+//                }
+     
+        }
 
 }

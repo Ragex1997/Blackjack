@@ -63,7 +63,7 @@ public class User {
     }
     
     public void addPayout(int payout){
-        this.balance =+ payout;
+        this.balance += payout;
     }
     
     public void setBalance(int balance) {

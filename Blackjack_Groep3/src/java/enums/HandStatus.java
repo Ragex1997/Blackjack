@@ -10,5 +10,18 @@ package enums;
  * @author Anthony Lannoote
  */
 public enum HandStatus {
-    BUSTED, BLACKJACK, STAND;
+    BUSTED("Busted"), BLACKJACK("Blackjack"), STAND("Stand");
+    
+    private String status;
+
+    private HandStatus(String status) {
+        this.status = status;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+    
+    
+    
 }

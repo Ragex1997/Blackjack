@@ -99,7 +99,7 @@ public class PlayGameServlet extends HttpServlet {
                         view.forward(request, response);
                         break;
                     case 2:
-                        view = request.getRequestDispatcher("/game/game1p.jsp");
+                        view = request.getRequestDispatcher("/game/game2p.jsp");
                         view.forward(request, response);
                         break;
                     case 3:

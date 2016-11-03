@@ -42,6 +42,8 @@
                     <img src="<%=dealer.getIcon().getLocation()%>" width="200" height="200"> 
                     <div id="dealername" style="position: absolute; top: 180px; left: 40px;">
                         <font color="white">Jabba The Dealer</font>
+                        <font color="white">status: <%=dealer.getHand().getStatus() %></font>
+                        <font color="white"> value: <%=dealer.getHand().getValue() %></font>
                     </div>
                 </div>
 
@@ -59,7 +61,7 @@
                         }
 
                         out.print("</div>");
-                        positionleft = +90;
+                        positionleft +=20;
                     }
 
                 %>
@@ -68,8 +70,7 @@
 
 
             <div id="player1" style="position: absolute; top: 250px; left: 50px;">
-                <%                    
-                    List<Card> cards = users.get(0).getHand().getCards();
+                <%                    List<Card> cards = users.get(0).getHand().getCards();
                     positionleft = 0;
                     for (Card c : cards) {
 
@@ -89,6 +90,9 @@
                     <img src="<%=users.get(0).getIcon().getLocation()%>" alt="" width="100" height="100"/>
                     <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
                         <font color="white"><%=users.get(0).getNickName()%></font>
+                        <font color="white">status: <%=users.get(0).getHand().getStatus() %></font>
+                        <font color="white">value: <%=users.get(0).getHand().getValue() %></font>
+                        <font color="white">GameStatus: <%=users.get(0).getGameStatus() %></font>
                     </div>
                 </div>
                 <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
@@ -104,25 +108,27 @@
             <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
                 <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
                 <font color="black"><%=turn%></font>
+                <font color="blue"><%=userturn%></font>
             </div>
-            
-        </form>
-            
-            <%
-                //vragen of de speler wil hitten of standen.
-                
-                String visibility = "";
-                if(turn < 1){
-                    visibility = "hidden";
-                }
-            %>
 
-            
-            <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
-            <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility %>;">
+        </form>
+
+        <%
+            //vragen of de speler wil hitten of standen.
+
+            String visibility = "";
+            if (turn < 1 || userturn == 10) {
+                visibility = "hidden";
+            }
+        %>
+
+
+        <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
+            <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility%>;">
                 <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
                 <div style="position: absolute; top: 50px; left: 50px;">
-                    <input type="text" name="user" value="<%=users.get(userturn).getNickName() %>" readonly>
+                    <input type="text" name="user" value="<% if(userturn < 10){
+                            out.print(users.get(userturn).getNickName());}%>" readonly>
                     <input type="submit" name="action" value="stand">
                     <input type="submit" name="action" value="hit">
                 </div>

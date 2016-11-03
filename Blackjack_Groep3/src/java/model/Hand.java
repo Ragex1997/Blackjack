@@ -58,7 +58,7 @@ public class Hand {
     }
 
     public HandStatus getStatus() {
-        return evaluate();
+        return this.status;
     }
 
        /**
@@ -90,15 +90,13 @@ public class Hand {
      * Controle op een Bust of Blackjack
      * @return 
      */
-    private HandStatus evaluate() {
-        HandStatus status = null;
+    public void evaluate() {
         int value = this.value;
         if (value > 21) {
-            status = BUSTED;
+            this.status = BUSTED;
         } else if (value == 21 && cards.size() == 2) {
-            status = BLACKJACK;
+            this.status = BLACKJACK;
         }
-        return status;
     }
 
 }

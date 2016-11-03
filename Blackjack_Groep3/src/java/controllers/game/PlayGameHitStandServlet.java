@@ -5,6 +5,7 @@
  */
 package controllers.game;
 
+import static enums.HandStatus.BUSTED;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -39,28 +40,46 @@ public class PlayGameHitStandServlet extends HttpServlet {
 
             HttpSession session = request.getSession();
             Game game = (Game) session.getAttribute("game");
-            
+
             String nickname = request.getParameter("user");
             String action = request.getParameter("action");
             int userturn = (Integer) session.getAttribute("userturn");
-            
+
             User user = game.getUsers().get(userturn);
-            
-            if(action.equals("hit")){
+
+            if (action.equals("hit")) {
+                
                 game.playerHit(user);
-            }else if(action.equals("stand")){
+                
+                if (userturn+1 < game.getUsers().size() && user.getHand().getStatus() == BUSTED) {
+                    ++userturn;
+                    session.setAttribute("userturn", userturn);
+                    
+                }else if(user.getHand().getStatus() == BUSTED) {
+
+                    game.getDealer().getHand().setSecondCardVisible();
+                    game.dealersTurn();
+                    session.setAttribute("userturn", 10);
+                }
+                
+            }else if (action.equals("stand")) {
+
                 game.playerStand(user);
-                ++userturn;
-            }else{
+
+                if (userturn + 1 < game.getUsers().size()) {
+                    ++userturn;
+                    session.setAttribute("userturn", userturn);
+                } else {
+
+                    game.getDealer().getHand().setSecondCardVisible();
+                    game.dealersTurn();
+                    game.evaluateGame();
+                    session.setAttribute("userturn", 10);
+                }
+
+            } else {
                 out.print("ERROR");
             }
-            out.print(nickname);
-            out.print(action);
-            for(Card c : user.getHand().getCards()){
-                out.println(c.getCardImage());
-            }
-            
-            
 
             //Ik heb voor iedere mogelijkheid van de hoeveelheid spelers een jsp pagina gemaakt
             //Want anders ging ik moeten mijn html code in scriptlet code zetten wat wss nog onoverzichtelijker zou zijn
@@ -71,7 +90,7 @@ public class PlayGameHitStandServlet extends HttpServlet {
                     view.forward(request, response);
                     break;
                 case 2:
-                    view = request.getRequestDispatcher("/game/game1p.jsp");
+                    view = request.getRequestDispatcher("/game/game2p.jsp");
                     view.forward(request, response);
                     break;
                 case 3:
