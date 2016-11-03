@@ -23,9 +23,14 @@ public class UserService {
         return users;
     }
     
-    public User getUserByNickName(String Nickname){
-        User user = Conversie.convertResultSetToUser(UserDAO.getUserDataByNickName(Nickname));
+    public User getUserByNickName(String nickname){
+        User user = Conversie.convertResultSetToUser(UserDAO.getUserDataByNickName(nickname));
         return user;
     }
     
+    public void updateUserBalance(User user){
+        String nickName = user.getNickName();
+        int balance = user.getBalance();
+        UserDAO.updateUserBalanceByNickName(nickName, balance);
+    }
 }

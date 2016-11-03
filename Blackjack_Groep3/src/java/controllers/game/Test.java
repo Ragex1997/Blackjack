@@ -6,6 +6,7 @@
 package controllers.game;
 
 import com.sun.javafx.scene.control.skin.VirtualFlow;
+import databank.services.UserService;
 import enums.HandStatus;
 import static enums.HandStatus.BUSTED;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ public class Test {
     public static void main(String... args) {
     
         List<User>users = new ArrayList<User>();
-        users.add(new User("Anthony", 50, new Icon("", "/Blackjack_Groep3/rescources/icons/Java the Hutt.png")));
+        users.add(new User("Anthony", 500, new Icon("", "/Blackjack_Groep3/rescources/icons/Java the Hutt.png")));
         Game game = new Game(users);
         
         game.getDeck().fillDeck();
@@ -46,6 +47,8 @@ public class Test {
             System.out.println("not busted");
             System.out.println(users.get(0).getHand().getStatus());
         }
+        UserService userService = new UserService();
+        userService.updateUserBalance(users.get(0));
     }
 }
 

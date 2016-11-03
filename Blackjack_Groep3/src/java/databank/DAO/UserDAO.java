@@ -37,9 +37,9 @@ public class UserDAO {
         }
         return rs;
     }
-    
-        public static ResultSet getUserDataByNickName(String NickName){
-        
+
+    public static ResultSet getUserDataByNickName(String NickName) {
+
         String query = "SELECT * FROM user where nickname = ?";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
@@ -51,21 +51,18 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return rs;  
+        return rs;
     }
-        
-        public static void updateUserBalanceByNickName(String nickName, int balance){
-            String query = "UPDATE user SET balance = "+ balance +" where user.nickname = '"+nickName+"'";
-            Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
-            ResultSet rs = null;
-            Statement stmt = null;
-            
-//            try {
-//                    
-//                } catch (SQLException e) {
-//                    
-//                }
-     
-        }
 
+    public static void updateUserBalanceByNickName(String nickName, int balance) {
+        String query = "UPDATE user SET balance = " + balance + " where user.nickname = '" + nickName + "'";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }
