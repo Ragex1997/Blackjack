@@ -72,7 +72,7 @@ public class PlayGameServlet extends HttpServlet {
                         if (users.size() > 2) {
                             int bet3 = Integer.parseInt(request.getParameter("bet3"));
                             users.get(2).setBet(bet3);
-                            if (users.size() > 4) {
+                            if (users.size() > 3) {
                                 int bet4 = Integer.parseInt(request.getParameter("bet4"));
                                 users.get(3).setBet(bet4);
                             }

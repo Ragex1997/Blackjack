@@ -171,9 +171,10 @@ public class Game {
 
         int dealerPoints = this.dealer.getHand().getValue();
         int userPoints = u.getHand().getValue();
+        HandStatus dealerHand = this.dealer.getHand().getStatus();
         boolean push = false;
 
-        if (userPoints == dealerPoints) {
+        if (userPoints == dealerPoints && dealerHand != BLACKJACK) {
             push = true;
         }
         return push;

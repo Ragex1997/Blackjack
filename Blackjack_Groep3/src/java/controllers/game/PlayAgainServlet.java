@@ -7,18 +7,22 @@ package controllers.game;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.Deck;
+import javax.servlet.http.HttpSession;
+import model.Game;
+import model.Hand;
+import model.User;
 
 /**
  *
  * @author Anthony Lannoote
  */
-public class GameTest extends HttpServlet {
+public class PlayAgainServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,17 +37,26 @@ public class GameTest extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
+            
+            HttpSession session = request.getSession();
+            Game game = (Game) session.getAttribute("game");
+            List<User>users = game.getUsers();
+            session.invalidate();
+            
+            //Verwijderd de kaarten van het vorige spel
+            for(User u : users){
+                u.setHand(new Hand());
+                u.setGameStatus(null);
+                u.setBet(1);
+            }
+            
+            session = request.getSession();
+            session.setAttribute("usersForGame", users);
+            
+            
+            
 
-            
-           // Game game = new Game(users);
-                        
-            Deck deck = new Deck();
-            
-            String location = deck.drawCard().getFrontImage();
-
-            request.setAttribute("imagelocation", location);
-            
-            RequestDispatcher view = request.getRequestDispatcher("/game/gameTest.jsp");
+            RequestDispatcher view = request.getRequestDispatcher("PlayGameServlet");
             view.forward(request, response);
         }
     }

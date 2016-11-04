@@ -31,7 +31,7 @@
 
 
         <form action="/Blackjack_Groep3/PlayGameServlet" method="post">
-            <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="640"> </div>
+            <div id="tafel" style="position: absolute"> <img src="/Blackjack_Groep3/rescources/backgrounds/blackjacktable.png" width="1330" height="680"> </div>
 
 
             <div id="dealer" style="position: absolute; top: 30px; left: 580px;">
@@ -40,8 +40,10 @@
                     <img src="<%=dealer.getIcon().getLocation()%>" width="200" height="200"> 
                     <div id="dealername" style="position: absolute; top: 180px; left: 40px;">
                         <font color="white">Jabba The Dealer</font>
-                        <font color="white">status: <%=dealer.getHand().getStatus()%></font>
-                        <font color="white"> value: <%=dealer.getHand().getValue()%></font>
+
+                        <font color="white"><% if (userturn == 10) {
+                                out.print("value: " + dealer.getHand().getValue());
+                            }%></font>
                     </div>
                 </div>
 
@@ -82,15 +84,19 @@
 
 
                 <div id="selectbet1" style="position: absolute; top: 110px; left: 0px;">
-                    <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(1).getBalance() + "'"%> style="width: 40px;">
+                    <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(0).getBalance() + "'"%> style="width: 40px;">
                 </div>             
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
                     <img src="<%=users.get(0).getIcon().getLocation()%>" alt="" width="100" height="100"/>
                     <div id="playername1" style="position: absolute; top: 110px; left: 30px;">
                         <font color="white"><%=users.get(0).getNickName()%></font>
-                        <font color="white">status: <%=users.get(0).getHand().getStatus()%></font>
                         <font color="white">value: <%=users.get(0).getHand().getValue()%></font>
-                        <font color="white">GameStatus: <%=users.get(0).getGameStatus()%></font>
+                        <font color="white"><% if (users.get(0).getHand().getStatus() != null) {
+                                out.print("HandStatus: " + users.get(0).getHand().getStatus());
+                            }%></font>
+                        <font color="white"><% if (users.get(0).getGameStatus() != null) {
+                                out.print("GameStatus " + users.get(0).getGameStatus());
+                            }%></font>
                     </div>
                 </div>
                 <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
@@ -100,7 +106,7 @@
             </div>  
 
             <div id="player2" style="position: absolute; top: 300px; left: 300px;">
-                <%                    
+                <%
                     cards = users.get(1).getHand().getCards();
                     positionleft = 0;
                     for (Card c : cards) {
@@ -121,9 +127,13 @@
                     <img src="<%=users.get(1).getIcon().getLocation()%>" alt="" width="100" height="100"/>
                     <div id="playername2" style="position: absolute; top: 110px; left: 30px;">
                         <font color="white"><%=users.get(1).getNickName()%></font>
-                        <font color="white">status: <%=users.get(1).getHand().getStatus()%></font>
                         <font color="white">value: <%=users.get(1).getHand().getValue()%></font>
-                        <font color="white">GameStatus: <%=users.get(1).getGameStatus()%></font>
+                        <font color="white"><% if (users.get(1).getHand().getStatus() != null) {
+                                out.print("HandStatus: " + users.get(1).getHand().getStatus());
+                            }%></font>
+                        <font color="white"><% if (users.get(1).getGameStatus() != null) {
+                                out.print("GameStatus " + users.get(1).getGameStatus());
+                            }%></font>
                     </div>
                 </div>
                 <div id="balance1" style="position: absolute; top: 120px; left: 110px;">
@@ -134,9 +144,17 @@
 
 
 
+            <%
+                //controleren of de Playbutten moet worden verborgen of niet
+
+                String visibility = "";
+                if (turn != 0) {
+                    visibility = "hidden";
+                }
+            %>
 
 
-            <div id="playbutton" style="position: absolute; top: 500px; left: 1200px;">
+            <div id="playbutton" style="position: absolute; top: 500px; left: 1200px; visibility:<%=visibility%>;">
                 <input type="image" src="/Blackjack_Groep3/rescources/icons/Yoda - 02.png" alt="submit" width="150" height="150">
                 <font color="black"><%=turn%></font>
                 <font color="blue"><%=userturn%></font>
@@ -147,7 +165,7 @@
         <%
             //vragen of de speler wil hitten of standen.
 
-            String visibility = "";
+            visibility = "";
             if (turn < 1 || userturn == 10) {
                 visibility = "hidden";
             }
@@ -164,6 +182,29 @@
                     <div style="position: absolute; top: 40px; left: 0px;">
                         <input type="submit" name="action" value="stand">
                         <input type="submit" name="action" value="hit">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+
+        <%
+
+            //vragen of de speler opnieuw wil spelen of met een andere selectie van spelers?
+            visibility = "";
+            if (userturn != 10) {
+                visibility = "hidden";
+            }
+        %>
+
+
+        <form action="/Blackjack_Groep3/PlayAgainServlet">
+            <div style="position: absolute; top: 80px; left: 160px; visibility:<%=visibility%>;">
+                <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
+                <div style="position: absolute; top: 50px; left: 50px;">
+                    <div style="position: absolute; top: 40px; left: 0px;">
+                        <button type="button" name="Spelers Kiezen" onclick="window.location = '/Blackjack_Groep3/ResetChoiceServlet';">Spelers Kiezen</button>
+                        <input type="submit" value="Opnieuw Spelen">
                     </div>
                 </div>
 

@@ -32,6 +32,10 @@
         <servlet-name>PlayGameHitStandServlet</servlet-name>
         <servlet-class>controllers.game.PlayGameHitStandServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>PlayAgainServlet</servlet-name>
+        <servlet-class>controllers.game.PlayAgainServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
         <url-pattern>/AddUsersServlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>PlayGameHitStandServlet</servlet-name>
         <url-pattern>/PlayGameHitStandServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PlayAgainServlet</servlet-name>
+        <url-pattern>/PlayAgainServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

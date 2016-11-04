@@ -5,6 +5,7 @@
  */
 package controllers.game;
 
+import databank.services.UserService;
 import static enums.HandStatus.BUSTED;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -48,21 +49,28 @@ public class PlayGameHitStandServlet extends HttpServlet {
             User user = game.getUsers().get(userturn);
 
             if (action.equals("hit")) {
-                
+
                 game.playerHit(user);
-                
-                if (userturn+1 < game.getUsers().size() && user.getHand().getStatus() == BUSTED) {
+
+                if (userturn + 1 < game.getUsers().size() && user.getHand().getStatus() == BUSTED) {
                     ++userturn;
                     session.setAttribute("userturn", userturn);
-                    
-                }else if(user.getHand().getStatus() == BUSTED) {
+
+                } else if (user.getHand().getStatus() == BUSTED) {
 
                     game.getDealer().getHand().setCardVisible(1);
                     game.dealersTurn();
+                    game.evaluateGame();
+
+                    UserService userService = new UserService();
+
+                    for (User u : game.getUsers()) {
+                        userService.updateUserBalance(u);
+                    }
                     session.setAttribute("userturn", 10);
                 }
-                
-            }else if (action.equals("stand")) {
+
+            } else if (action.equals("stand")) {
 
                 game.playerStand(user);
 
@@ -74,6 +82,13 @@ public class PlayGameHitStandServlet extends HttpServlet {
                     game.getDealer().getHand().setCardVisible(1);
                     game.dealersTurn();
                     game.evaluateGame();
+
+                    UserService userService = new UserService();
+
+                    for (User u : game.getUsers()) {
+                        userService.updateUserBalance(u);
+                    }
+
                     session.setAttribute("userturn", 10);
                 }
 

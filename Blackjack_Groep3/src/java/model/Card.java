@@ -40,7 +40,7 @@ public class Card {
         return visable;
     }
 
-    public String getFrontImage() {
+    public String getCardImage() {
         return cardImage;
     }
 
