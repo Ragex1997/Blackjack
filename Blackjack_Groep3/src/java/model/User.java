@@ -12,7 +12,7 @@ import enums.GameStatus;
  * @author Anthony Lannoote
  */
 public class User {
-    
+
     private String nickName;
     private int balance;
     private Icon icon;
@@ -27,8 +27,6 @@ public class User {
         this.bet = 1;
         this.hand = new Hand();
     }
-    
-    
 
     public String getNickName() {
         return nickName;
@@ -53,19 +51,11 @@ public class User {
     public GameStatus getGameStatus() {
         return gameStatus;
     }
-    
-    public void addCard(Card card){
-        this.getHand().addCard(card);
-    }
 
     public void setNickName(String nickName) {
         this.nickName = nickName;
     }
-    
-    public void addPayout(int payout){
-        this.balance += payout;
-    }
-    
+
     public void setBalance(int balance) {
         this.balance = balance;
     }
@@ -87,8 +77,12 @@ public class User {
         this.gameStatus = gameStatus;
     }
 
-    
+    public void addPayout(int payout) {
+        this.balance += payout;
+    }
 
-    
-    
+    public void addCard(Card card) {
+        this.getHand().addCard(card);
+    }
+
 }

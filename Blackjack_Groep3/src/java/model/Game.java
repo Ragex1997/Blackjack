@@ -42,6 +42,10 @@ public class Game {
         return dealer;
     }
 
+    public Calendar getDate() {
+        return date;
+    }
+
     /**
      * De kaarten worden verdeeld onder de dealer en de spelers
      */
@@ -68,15 +72,23 @@ public class Game {
     }
 
     /**
-     * Beslist als de dealer moet hitten of standen
-     * De dealer zel hitten als hij minder heeft dan 17 of als 
-     * iedereen een hoger hand heeft dan hij.
+     * Zet zijn Status op Stand en berekend de waarde van zijn hand
+     *
+     * @param user
+     */
+    public void playerStand(User user) {
+        user.getHand().setStatus(STAND);
+        user.getHand().getValue();
+    }
+
+    /**
+     * Beslist als de dealer moet hitten of standen De dealer zel hitten als hij
+     * minder heeft dan 17 of als iedereen een hoger hand heeft dan hij.
      */
     public void dealersTurn() {
         int value = this.dealer.getHand().getValue();
         int minValue = 1000;
         int minStand = this.dealer.getMinStand();
-                
 
         for (User u : this.users) {
             if (minValue > u.getHand().getValue() && BUSTED != u.getHand().getStatus()) {//Als de User NIET Busted is zal hij ze mee tellen
@@ -88,54 +100,6 @@ public class Game {
             this.dealer.addCard(deck.drawCard());
             value = this.dealer.getHand().getValue();
         }
-    }
-
-    /**
-     * Zet zijn Status op Stand en berekend de waarde van zijn hand
-     * @param user 
-     */
-    public void playerStand(User user) {
-        user.getHand().setStatusStand();
-        user.getHand().getValue();
-    }
-
-
-    /**
-     * Kijkt of de User een push heeft
-     * Wordt gebruikt in evaluateGame
-     * @param u
-     * @return 
-     */
-    private boolean evaluteUserPush(User u) {
-
-        int dealerPoints = this.dealer.getHand().getValue();
-        int userPoints = u.getHand().getValue();
-        boolean push = false;
-
-        if (userPoints == dealerPoints) {
-            push = true;
-        }
-        return push;
-    }
-    
-    /**
-     * Kijkt of de user gewonnen heeft
-     * Wordt gebruikt in evaluateGame
-     * @param u
-     * @return 
-     */
-    private boolean evaluateUserWin(User u) {
-
-        int dealerValue = this.dealer.getHand().getValue();
-        HandStatus dealerHandStatus = this.dealer.getHand().getStatus();
-        int userValue = u.getHand().getValue();
-        boolean win = false;
-
-        if (userValue > dealerValue || dealerHandStatus == BUSTED) {
-            win = true;
-        }
-
-        return win;
     }
 
     /**
@@ -152,7 +116,7 @@ public class Game {
 
         dealerPoints = this.dealer.getHand().getValue();
         dealerHandStatus = this.dealer.getHand().getStatus();
-        
+
         for (User u : this.users) {
             userHandStatus = u.getHand().getStatus();
 
@@ -163,7 +127,7 @@ public class Game {
                 payout = (int) (u.getBet() * 2.5);
                 u.addPayout(payout);
             } else if (evaluateUserWin(u)) {
-                payout = (int) (u.getBet()*2);
+                payout = (int) (u.getBet() * 2);
                 u.setGameStatus(WIN);
                 u.addPayout(payout);
 
@@ -171,9 +135,47 @@ public class Game {
                 payout = (int) (u.getBet());
                 u.setGameStatus(PUSH);
                 u.addPayout(payout);
-            }else{
+            } else {
                 u.setGameStatus(LOSS);
             }
         }
+    }
+
+    /**
+     * Kijkt of de user gewonnen heeft Wordt gebruikt in evaluateGame
+     *
+     * @param u
+     * @return
+     */
+    private boolean evaluateUserWin(User u) {
+
+        int dealerValue = this.dealer.getHand().getValue();
+        HandStatus dealerHandStatus = this.dealer.getHand().getStatus();
+        int userValue = u.getHand().getValue();
+        boolean win = false;
+
+        if (userValue > dealerValue || dealerHandStatus == BUSTED) {
+            win = true;
+        }
+
+        return win;
+    }
+
+    /**
+     * Kijkt of de User een push heeft Wordt gebruikt in evaluateGame
+     *
+     * @param u
+     * @return
+     */
+    private boolean evaluteUserPush(User u) {
+
+        int dealerPoints = this.dealer.getHand().getValue();
+        int userPoints = u.getHand().getValue();
+        boolean push = false;
+
+        if (userPoints == dealerPoints) {
+            push = true;
+        }
+        return push;
     }
 }

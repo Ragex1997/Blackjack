@@ -27,10 +27,6 @@ public class Deck {
         return cards;
     }
 
-    public void setCards(List<Card> cards) {
-        this.cards = cards;
-    }
-
     /**
      * Deck word opgevuldt met alle 52 kaarten
      */

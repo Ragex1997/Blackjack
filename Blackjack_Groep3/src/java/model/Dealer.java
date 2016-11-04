@@ -29,15 +29,12 @@ public class Dealer {
         return icon;
     }
     
-    
-    public void addCard(Card card){
-        this.hand.addCard(card);
-    }
-
     public Hand getHand() {
         return hand;
     }
     
     
-    
+    public void addCard(Card card){
+        this.hand.addCard(card);
+    }
 }

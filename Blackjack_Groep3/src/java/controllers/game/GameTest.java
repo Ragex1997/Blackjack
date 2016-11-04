@@ -39,7 +39,7 @@ public class GameTest extends HttpServlet {
                         
             Deck deck = new Deck();
             
-            String location = deck.drawCard().getCardImage();
+            String location = deck.drawCard().getFrontImage();
 
             request.setAttribute("imagelocation", location);
             

@@ -25,47 +25,13 @@ public class Hand {
     public Hand() {
         this.cards = new ArrayList<Card>();
     }
-    
-    /**
-     * Maakt de een kaart onzichtbaar wordt gebruikt om de dealer zijn kaart te verbergen
-     * @param cardNumberInList geef de positie van de kaart in in de List die je wilt onzichtbaar maken
-     */
-    public void setSecondCardInvisible(int cardNumberInList){
-        this.cards.get(cardNumberInList).setVisible(false);
-    }
-    
-    /**
-     * Maakt de een kaar zichtbaar wordt gebruikt om de dealer zijn kaart zichtbaar te maken
-     * @param cardNumberInList geef de positie van de kaart in in de List die je wilt zichtbaar maken
-     */
-     
-    
-    public void setSecondCardVisible(int cardNumberInList){
-        this.cards.get(cardNumberInList).setVisible(true);
-    }
-
-    public void setStatus(HandStatus status) {
-        this.status = status;
-    }
-
-    public void setStatusStand() {
-        this.status = STAND;
-    }
-
-    public void addCard(Card card) {
-        this.cards.add(card);
-    }
-
-    public List<Card> getCards() {
-        return cards;
-    }
-
 
     /**
-     * Berekend de value van zijn Hand en controleerd of zij een Bust of Blackjack heeft
+     * Berekend de value van zijn Hand en controleerd of zij een Bust of
+     * Blackjack heeft
+     *
      * @return Geeft de value terug
      */
-    
     public int getValue() {
         this.value = calculateValue();
         this.evaluate();
@@ -76,9 +42,44 @@ public class Hand {
         return this.status;
     }
 
-       /**
+    public List<Card> getCards() {
+        return cards;
+    }
+
+    /**
+     * Maakt de een kaart onzichtbaar wordt gebruikt om de dealer zijn kaart te
+     * verbergen
+     *
+     * @param cardNumberInList geef de positie van de kaart in in de List die je
+     * wilt onzichtbaar maken
+     */
+    public void setCardInvisible(int cardNumberInList) {
+        this.cards.get(cardNumberInList).setVisible(false);
+    }
+
+    /**
+     * Maakt de een kaar zichtbaar wordt gebruikt om de dealer zijn kaart
+     * zichtbaar te maken
+     *
+     * @param cardNumberInList geef de positie van de kaart in in de List die je
+     * wilt zichtbaar maken
+     */
+    public void setCardVisible(int cardNumberInList) {
+        this.cards.get(cardNumberInList).setVisible(true);
+    }
+
+    public void setStatus(HandStatus status) {
+        this.status = status;
+    }
+
+    public void addCard(Card card) {
+        this.cards.add(card);
+    }
+
+    /**
      * Berekenen van de waarde van je hand
-     * @return 
+     *
+     * @return
      */
     private int calculateValue() {
         int value = 0;
@@ -89,7 +90,7 @@ public class Hand {
             Card card = IterCard.next();
 
             value += card.getValue().getNumVal();
-            
+
             if (card.getValue().equals(ACE)) {
                 ++ace;
             }
@@ -100,10 +101,11 @@ public class Hand {
         }
         return value;
     }
-    
+
     /**
      * Controle op een Bust of Blackjack
-     * @return 
+     *
+     * @return
      */
     public void evaluate() {
         int value = this.value;

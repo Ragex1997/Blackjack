@@ -57,7 +57,7 @@ public class PlayGameHitStandServlet extends HttpServlet {
                     
                 }else if(user.getHand().getStatus() == BUSTED) {
 
-                    game.getDealer().getHand().setSecondCardVisible(1);
+                    game.getDealer().getHand().setCardVisible(1);
                     game.dealersTurn();
                     session.setAttribute("userturn", 10);
                 }
@@ -71,7 +71,7 @@ public class PlayGameHitStandServlet extends HttpServlet {
                     session.setAttribute("userturn", userturn);
                 } else {
 
-                    game.getDealer().getHand().setSecondCardVisible(1);
+                    game.getDealer().getHand().setCardVisible(1);
                     game.dealersTurn();
                     game.evaluateGame();
                     session.setAttribute("userturn", 10);

@@ -83,7 +83,7 @@ public class PlayGameServlet extends HttpServlet {
                 game.getDeck().fillDeck();
                 game.getDeck().shuffleDeck();
                 game.cardDistribution();
-                game.getDealer().getHand().setSecondCardInvisible(1);
+                game.getDealer().getHand().setCardInvisible(1);
             }
 
             if (turn > 1) {
