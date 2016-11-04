@@ -82,7 +82,7 @@
 
 
                 <div id="selectbet1" style="position: absolute; top: 110px; left: 0px;">
-                    <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(0).getBalance() + "'"%> style="width: 40px;">
+                    <input type="number" name="bet1" step="1" <%="value='" + users.get(0).getBet() + "'"%> min="1" <%= "max='" + users.get(1).getBalance() + "'"%> style="width: 40px;">
                 </div>             
                 <div id="icon1" style="position: absolute; top: 150px; left: 0px;">
                     <img src="<%=users.get(0).getIcon().getLocation()%>" alt="" width="100" height="100"/>
@@ -115,7 +115,7 @@
 
 
                 <div id="selectbet2" style="position: absolute; top: 110px; left: 0px;">
-                    <input type="number" name="bet2" step="1" <%="value='" + users.get(1).getBet() + "'"%> min="1" <%= "max='" + users.get(0).getBalance() + "'"%> style="width: 40px;">
+                    <input type="number" name="bet2" step="1" <%="value='" + users.get(1).getBet() + "'"%> min="1" <%= "max='" + users.get(1).getBalance() + "'"%> style="width: 40px;">
                 </div>             
                 <div id="icon2" style="position: absolute; top: 150px; left: 0px;">
                     <img src="<%=users.get(1).getIcon().getLocation()%>" alt="" width="100" height="100"/>
@@ -155,19 +155,20 @@
 
 
         <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
-            <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility%>;">
+            <div style="position: absolute; top: 80px; left: 160px; visibility:<%=visibility%>;">
                 <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
                 <div style="position: absolute; top: 50px; left: 50px;">
                     <input type="text" name="user" value="<% if (userturn < 10) {
                             out.print(users.get(userturn).getNickName());
                         }%>" readonly>
-                    <input type="submit" name="action" value="stand">
-                    <input type="submit" name="action" value="hit">
+                    <div style="position: absolute; top: 40px; left: 0px;">
+                        <input type="submit" name="action" value="stand">
+                        <input type="submit" name="action" value="hit">
+                    </div>
                 </div>
 
             </div>
         </form>
-
 
 
 

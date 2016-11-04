@@ -124,13 +124,16 @@
 
 
         <form action="/Blackjack_Groep3/PlayGameHitStandServlet">
-            <div style="position: absolute; top: 300px; left: 400px; visibility:<%=visibility%>;">
+            <div style="position: absolute; top: 80px; left: 160px; visibility:<%=visibility%>;">
                 <img src="/Blackjack_Groep3/rescources/backgrounds/backgroundHitStand.jpg" alt="" width="300" height="150"/>
                 <div style="position: absolute; top: 50px; left: 50px;">
-                    <input type="text" name="user" value="<% if(userturn < 10){
-                            out.print(users.get(userturn).getNickName());}%>" readonly>
-                    <input type="submit" name="action" value="stand">
-                    <input type="submit" name="action" value="hit">
+                    <input type="text" name="user" value="<% if (userturn < 10) {
+                            out.print(users.get(userturn).getNickName());
+                        }%>" readonly>
+                    <div style="position: absolute; top: 40px; left: 0px;">
+                        <input type="submit" name="action" value="stand">
+                        <input type="submit" name="action" value="hit">
+                    </div>
                 </div>
 
             </div>

@@ -6,7 +6,7 @@
 package model;
 
 import enums.Suit;
-import enums.Value;
+import enums.Rank;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -42,7 +42,7 @@ public class Deck {
 
         for (Suit s : Suit.values()) {
 
-            for (Value v : Value.values()) {
+            for (Rank v : Rank.values()) {
                 this.cards.add(new Card(s, v));
             }
         }

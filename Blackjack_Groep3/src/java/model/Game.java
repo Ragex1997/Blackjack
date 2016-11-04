@@ -9,6 +9,7 @@ import static enums.GameStatus.*;
 import enums.HandStatus;
 import static enums.HandStatus.*;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 /**
@@ -17,14 +18,16 @@ import java.util.List;
  */
 public class Game {
 
-    private List<User> users;
+    private List<User> users = new ArrayList<User>();
     private Dealer dealer;
     private Deck deck;
+    private Calendar date;
 
     public Game(List<User> users) {
-        this.users = new ArrayList<User>(users);
-        this.dealer = new Dealer(17);
+        this.users.addAll(users);
+        this.dealer = new Dealer(16);
         this.deck = new Deck();
+        this.date = Calendar.getInstance();
     }
 
     public Deck getDeck() {
@@ -71,26 +74,38 @@ public class Game {
      */
     public void dealersTurn() {
         int value = this.dealer.getHand().getValue();
-        int minValue = 16;
+        int minValue = 1000;
+        int minStand = this.dealer.getMinStand();
+                
 
         for (User u : this.users) {
-            if (minValue > u.getHand().getValue() && BUSTED != u.getHand().getStatus()) {
-                minValue = u.getHand().getValue();
+            if (minValue > u.getHand().getValue() && BUSTED != u.getHand().getStatus()) {//Als de User NIET Busted is zal hij ze mee tellen
+                minValue = u.getHand().getValue();                                       //als het ook nog lager is dan minValue
             }
         }
 
-        while (16 > value || minValue > value) {
+        while (minStand > value || minValue > value && minValue != 1000) {
             this.dealer.addCard(deck.drawCard());
             value = this.dealer.getHand().getValue();
         }
     }
 
+    /**
+     * Zet zijn Status op Stand en berekend de waarde van zijn hand
+     * @param user 
+     */
     public void playerStand(User user) {
         user.getHand().setStatusStand();
         user.getHand().getValue();
     }
 
 
+    /**
+     * Kijkt of de User een push heeft
+     * Wordt gebruikt in evaluateGame
+     * @param u
+     * @return 
+     */
     private boolean evaluteUserPush(User u) {
 
         int dealerPoints = this.dealer.getHand().getValue();
@@ -99,26 +114,34 @@ public class Game {
 
         if (userPoints == dealerPoints) {
             push = true;
-            u.setGameStatus(PUSH);
         }
         return push;
     }
-
+    
+    /**
+     * Kijkt of de user gewonnen heeft
+     * Wordt gebruikt in evaluateGame
+     * @param u
+     * @return 
+     */
     private boolean evaluateUserWin(User u) {
 
-        int dealerPoints = this.dealer.getHand().getValue();
+        int dealerValue = this.dealer.getHand().getValue();
         HandStatus dealerHandStatus = this.dealer.getHand().getStatus();
-        int userPoints = u.getHand().getValue();
+        int userValue = u.getHand().getValue();
         boolean win = false;
 
-        if (userPoints > dealerPoints || dealerHandStatus == BUSTED) {
+        if (userValue > dealerValue || dealerHandStatus == BUSTED) {
             win = true;
-            u.setGameStatus(WIN);
         }
 
         return win;
     }
 
+    /**
+     * Hier bereken we wie er gewonnen heeft en wie er verliest of gelijk speelt
+     * En worden ze uitbetaald
+     */
     public void evaluateGame() {
 
         int dealerPoints;
@@ -127,29 +150,26 @@ public class Game {
         HandStatus dealerHandStatus;
         HandStatus userHandStatus;
 
-        List<User> userWinners = new ArrayList<User>(this.users);
-
         dealerPoints = this.dealer.getHand().getValue();
         dealerHandStatus = this.dealer.getHand().getStatus();
         
-        
-        
-        for (User u : userWinners) {
+        for (User u : this.users) {
             userHandStatus = u.getHand().getStatus();
 
             if (userHandStatus == BUSTED) {
-                this.users.get(this.users.indexOf(u)).setGameStatus(LOSS);
-                userWinners.remove(u);
+                u.setGameStatus(LOSS);
             } else if (userHandStatus == BLACKJACK) {
-                this.users.get(this.users.indexOf(u)).setGameStatus(WIN);
+                u.setGameStatus(WIN);
                 payout = (int) (u.getBet() * 2.5);
                 u.addPayout(payout);
             } else if (evaluateUserWin(u)) {
-                payout = (int) (u.getBet()) * 2;
+                payout = (int) (u.getBet()*2);
+                u.setGameStatus(WIN);
                 u.addPayout(payout);
 
             } else if (evaluteUserPush(u)) {
                 payout = (int) (u.getBet());
+                u.setGameStatus(PUSH);
                 u.addPayout(payout);
             }else{
                 u.setGameStatus(LOSS);

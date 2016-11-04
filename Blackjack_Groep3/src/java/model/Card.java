@@ -6,7 +6,7 @@
 package model;
 
 import enums.Suit;
-import enums.Value;
+import enums.Rank;
 
 /**
  *
@@ -15,12 +15,12 @@ import enums.Value;
 public class Card {
     
     private final Suit suit;
-    private final Value value;
+    private final Rank value;
     private Boolean visable;
     private String cardImage;
     private String backImage;
 
-    public Card(Suit suit, Value value) {
+    public Card(Suit suit, Rank value) {
         this.suit = suit;
         this.value = value;
         this.cardImage = "rescources/playingCards/" + suit.getSuit() + "/" + value.toString() + ".png";
@@ -28,12 +28,12 @@ public class Card {
         this.visable = true;
     }
 
-    public Value getValue() {
+    public Rank getValue() {
         return value;
     }
 
-    public void setVisable(Boolean visable) {
-        this.visable = visable;
+    public void setVisible(Boolean visible) {
+        this.visable = visible;
     }
 
     public Boolean getVisable() {
@@ -44,18 +44,7 @@ public class Card {
         return cardImage;
     }
 
-    public void setCardImage(String cardImage) {
-        this.cardImage = cardImage;
-    }
-
     public String getBackImage() {
         return backImage;
-    }
-
-    public void setBackImage(String backImage) {
-        this.backImage = backImage;
-    }
-    
-    
-    
+    } 
 }

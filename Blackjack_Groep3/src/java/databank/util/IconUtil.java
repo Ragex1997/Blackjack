@@ -16,13 +16,16 @@ import model.Icon;
  * @author Anthony Lannoote
  */
 public class IconUtil {
-    
-        public static void makeIconListFromFiles() {
-        
+
+    /**
+     * Dit heb ik gebruikt om al mijn Icons die worden gebruikt bij User in mijn databank te laden 
+     */
+    public static void makeIconListFromFiles() {
+
         File[] files = new File("C:\\Develop\\BlackjackProject\\Blackjack\\Blackjack_Groep3\\web\\rescources\\icons").listFiles();
-        List<Icon>icons = new ArrayList<Icon>();
+        List<Icon> icons = new ArrayList<Icon>();
         IconService iconService = new IconService();
-        
+
         for (File file : files) {
             if (file.isDirectory()) {
                 System.out.println("Directory: " + file.getName());
@@ -37,5 +40,5 @@ public class IconUtil {
         }
         iconService.InsertIconList(icons);
     }
-    
+
 }

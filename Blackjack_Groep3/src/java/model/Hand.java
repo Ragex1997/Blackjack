@@ -7,7 +7,7 @@ package model;
 
 import enums.HandStatus;
 import static enums.HandStatus.*;
-import static enums.Value.*;
+import static enums.Rank.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,12 +26,22 @@ public class Hand {
         this.cards = new ArrayList<Card>();
     }
     
-    public void setSecondCardInvisible(){
-        this.cards.get(1).setVisable(false);
+    /**
+     * Maakt de een kaart onzichtbaar wordt gebruikt om de dealer zijn kaart te verbergen
+     * @param cardNumberInList geef de positie van de kaart in in de List die je wilt onzichtbaar maken
+     */
+    public void setSecondCardInvisible(int cardNumberInList){
+        this.cards.get(cardNumberInList).setVisible(false);
     }
     
-    public void setSecondCardVisible(){
-        this.cards.get(1).setVisable(true);
+    /**
+     * Maakt de een kaar zichtbaar wordt gebruikt om de dealer zijn kaart zichtbaar te maken
+     * @param cardNumberInList geef de positie van de kaart in in de List die je wilt zichtbaar maken
+     */
+     
+    
+    public void setSecondCardVisible(int cardNumberInList){
+        this.cards.get(cardNumberInList).setVisible(true);
     }
 
     public void setStatus(HandStatus status) {
@@ -51,6 +61,11 @@ public class Hand {
     }
 
 
+    /**
+     * Berekend de value van zijn Hand en controleerd of zij een Bust of Blackjack heeft
+     * @return Geeft de value terug
+     */
+    
     public int getValue() {
         this.value = calculateValue();
         this.evaluate();
