@@ -16,7 +16,7 @@
         <h1>Login Page</h1> 
 
 
-        <link rel="stylesheet" href="/Opmaak.css" type="text/css" />
+        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
 
         <br>
         <div align="center" class ="setcolor">
@@ -56,7 +56,7 @@
 
             <br>
             <br>
-            <input class="button" type="submit" value="Home" onclick="location.href = 'startpagina.html'">
+            <input class="button" type="submit" value="Home" onclick="location.href = '../startpagina.html'">
         </div>
 
     </body>
