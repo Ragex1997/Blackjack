@@ -34,9 +34,9 @@
                 <td></td>       <%--uit db halen--%>
                 <td></td>   <%--via timer vastgelegd en dan in db gezet --%>
                 <td>
-                  <input class="button" type="button" onclick="location.href='gebruikertoevoegen.html'" value="gebruiker toevoegen"><br><br>
-                  <input class="button" type="button" onclick="location.href='gebruikerview.html'" value="gebruiker bekijken"><br><br>
-                  <input class="button" type="button" onclick="location.href='gebruikerdelete.html'" value="gebruiker verwijderen"><br><br>
+                  <input class="button" type="button" onclick="location.href='gebruikertoevoegen.jsp'" value="gebruiker toevoegen"><br><br>
+                  <input class="button" type="button" onclick="location.href='gebruikerview.jsp'" value="gebruiker bekijken"><br><br>
+                  <input class="button" type="button" onclick="location.href='gebruikerdeleten.jsp'" value="gebruiker verwijderen"><br><br>
                 </td>                
             </tr>                                   
         </table>

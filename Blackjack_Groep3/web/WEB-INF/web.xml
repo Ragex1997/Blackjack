@@ -90,7 +90,37 @@
         <web-resource-collection>
             <web-resource-name>admins</web-resource-name>
             <description/>
-            <url-pattern>/gebruikerstoevoegen.jsp</url-pattern>
+            <url-pattern>/gebruikers/gebruikertoevoegen.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admins</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>admins</display-name>
+        <web-resource-collection>
+            <web-resource-name>admins</web-resource-name>
+            <description/>
+            <url-pattern>/gebruikers/gebruikerdeleten.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <description/>
+            <role-name>admins</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <security-constraint>
+        <display-name>admins</display-name>
+        <web-resource-collection>
+            <web-resource-name>admins</web-resource-name>
+            <description/>
+            <url-pattern>/gebruikers/gebruikerview.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
