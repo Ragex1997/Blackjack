@@ -5,10 +5,12 @@
  */
 package databank.util;
 
+import databank.services.DatumService;
 import databank.services.IconService;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import model.Icon;
 import model.User;
@@ -113,5 +115,23 @@ public class Conversie {
         }
         return user;
     }
+    
+    //date van spel in database steken
+    public static Calendar convertResultSetToGame(ResultSet rs){
 
+        DatumService datumService = new DatumService();
+        
+        int id = 0;
+        Calendar date = null;
+        
+        try{
+            while(rs.next()){
+                id = Integer.parseInt(rs.getString("id"));
+                date = datumService.getGameDateById(id);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return date;
+    }
 }
