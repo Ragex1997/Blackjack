@@ -63,7 +63,7 @@ public class Game {
 
     /**
      * De speler trekt een kaart van het Deck
-     *
+     * En de waarde van zijn hand wordt berekent
      * @param user
      */
     public void playerHit(User user) {

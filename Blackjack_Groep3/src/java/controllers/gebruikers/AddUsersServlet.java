@@ -18,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.User;
+import java.security.Principal;
 
 /**
  *
@@ -39,6 +40,7 @@ public class AddUsersServlet extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
 
+            
             UserService userService = new UserService();
             HttpSession session = request.getSession();
 

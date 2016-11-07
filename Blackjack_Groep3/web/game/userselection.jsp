@@ -31,7 +31,6 @@
 
                         <select name="user">
                             <%
-
                                 //Ophalen van users uit de DB of
                                 //het ophalen van users waar de al geselecteerde niet meet in zitten
                                 String selected = "";
@@ -47,7 +46,11 @@
                                     users = (List<User>) session.getAttribute("usersChoice");
                                 } else {
                                     UserService persoonService = new UserService();
-                                    users = (List) persoonService.getListOfUsers(true);
+                                    if (request.getUserPrincipal() == null) {
+                                        users = (List) persoonService.getListOfUsers(true);
+                                    } else {
+                                        users = (List) persoonService.getListOfUsers(true);
+                                    }
 
                                 }
 
@@ -70,14 +73,14 @@
                     <td><input type="submit" name="adduser_sub" value="Add user"></td>
                 </tr>
                 <tr>
-                    <td><button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';" <%if (!selected.equals("yes")) {
-                                out.print("disabled");
-                            }%>>Play</button></td>
+                            <td><button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';" <%if (!selected.equals("yes")) {
+                            out.print("disabled");
+                        }%>>Play</button></td>
                     <td><button type="button" name="home_btn" onclick="window.location = '/Blackjack_Groep3/startpagina.html';">Home</button></td>
-                
+
                 </tr>
             </table>
-                    
+
         </form>
 
 

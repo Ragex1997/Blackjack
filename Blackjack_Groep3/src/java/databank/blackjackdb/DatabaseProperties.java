@@ -12,5 +12,5 @@ package databank.blackjackdb;
 public class DatabaseProperties {
     public static final String HOSTNAME = "jdbc:mysql://localhost:3306/blackjack";
     public static final String USERNAME = "root";
-    public static final String PASSWORD = "Killroy1006";
+    public static final String PASSWORD = "azerty";
 }
