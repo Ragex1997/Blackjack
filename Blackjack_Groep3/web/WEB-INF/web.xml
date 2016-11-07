@@ -5,10 +5,6 @@
         <servlet-class>controllers.test</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>LogOut</servlet-name>
-        <servlet-class>LogOut</servlet-class>
-    </servlet>
-    <servlet>
         <servlet-name>GameTest</servlet-name>
         <servlet-class>controllers.game.GameTest</servlet-class>
     </servlet>
@@ -36,6 +32,10 @@
         <servlet-name>PlayAgainServlet</servlet-name>
         <servlet-class>controllers.game.PlayAgainServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Logout</servlet-name>
+        <servlet-class>controllers.gebruikers.Logout</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
         <url-pattern>/AddUsersServlet</url-pattern>
@@ -43,10 +43,6 @@
     <servlet-mapping>
         <servlet-name>ResetChoiceServlet</servlet-name>
         <url-pattern>/ResetChoiceServlet</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>LogOut</servlet-name>
-        <url-pattern>/LogOut</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>PlayGame</servlet-name>
@@ -64,6 +60,10 @@
         <servlet-name>PlayAgainServlet</servlet-name>
         <url-pattern>/PlayAgainServlet</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Logout</servlet-name>
+        <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30 
@@ -74,7 +74,7 @@
         <realm-name>BlackjackRealm</realm-name>
         <form-login-config>
             <form-login-page>/loginpagina.jsp</form-login-page>
-            <form-error-page>/LogOut</form-error-page>
+            <form-error-page>/Logout</form-error-page>
         </form-login-config>
     </login-config>
     <security-role>
@@ -99,7 +99,6 @@
             <role-name>admins</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <security-constraint>
         <display-name>admins</display-name>
         <web-resource-collection>
@@ -114,7 +113,6 @@
             <role-name>admins</role-name>
         </auth-constraint>
     </security-constraint>
-    
     <security-constraint>
         <display-name>admins</display-name>
         <web-resource-collection>
@@ -131,10 +129,10 @@
     </security-constraint>
     <error-page>
         <error-code>403</error-code>
-        <location>/LogOut</location>
+        <location>/Logout</location>
     </error-page>
     <error-page>
         <error-code>401</error-code>
-        <location>/LogOut</location>
+        <location>/Logout</location>
     </error-page>
 </web-app>
