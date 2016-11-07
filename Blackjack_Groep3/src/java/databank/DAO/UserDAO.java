@@ -100,8 +100,8 @@ public class UserDAO {
         
     }
     
-    public static void updateUser(String nickName, int balance, int iconid, String email, String password) {
-        String query = "UPDATE user SET balance = " + balance + " where user.nickname = '" + nickName + "'";
+    public static void updateUser(String nickname, String nicknamenew, int balance, int iconid, String email, String password , int isheadhuser) {
+        String query = "UPDATE `user` SET `Iconid` = '"+iconid+"', `nickname` = '"+nicknamenew+"', `balance` = '"+balance+"', `isHeadUser` = '"+isheadhuser+"', `email` = '"+email+"', `password` = '"+password+"' WHERE `user`.`"+nickname+"`";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 
         try {
