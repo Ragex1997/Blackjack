@@ -1,6 +1,6 @@
 <%-- 
-    Document   : gebruikerview
-    Created on : 5-nov-2016, 10:49:57
+    Document   : gebruikerupdaten
+    Created on : 7-nov-2016, 11:58:11
     Author     : Xander
 --%>
 
@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>gebruiker Kiezen</h1>
-        
+        <h1>Gebruiker Aanpassen</h1>
     </body>
 </html>

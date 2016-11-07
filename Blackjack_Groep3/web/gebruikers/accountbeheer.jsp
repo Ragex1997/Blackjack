@@ -16,30 +16,25 @@
         <!--
         aantalGebruikers = 
         -->
-        
+
         <h1>Accountbeheer</h1>
 
-        <table>
-            <tr>
-                <th>Nickname</th>
-                <th>Balance</th>
-                <th>Icon</th>
-                <th>TimePlayed</th>
-                <th>Actions</th>
-            </tr>
-                  
-            <tr>
-                <td></td>  <%--uit db halen--%>
-                <td></td>    <%--uit db halen--%>
-                <td></td>       <%--uit db halen--%>
-                <td></td>   <%--via timer vastgelegd en dan in db gezet --%>
-                <td>
-                  <input class="button" type="button" onclick="location.href='gebruikertoevoegen.jsp'" value="gebruiker toevoegen"><br><br>
-                  <input class="button" type="button" onclick="location.href='gebruikeraanpassen.jsp'" value="gebruiker aanpassen"><br><br>
-                  <input class="button" type="button" onclick="location.href='gebruikerdeleten.jsp'" value="gebruiker verwijderen"><br><br>
-                </td>                
-            </tr>                                   
-        </table>
-                <input class="button" type="submit" value="Back" onclick="location.href='../startpagina.html'">
+        <div align='center'>
+            <table>
+
+                <tr>
+                    <td></td>  <%--uit db halen--%>
+                    <td></td>    <%--uit db halen--%>
+                    <td></td>       <%--uit db halen--%>
+                    <td></td>   <%--via timer vastgelegd en dan in db gezet --%>
+                    <td>
+                        <input class="button" type="button" onclick="location.href = 'gebruikertoevoegen.jsp'" value="gebruiker toevoegen"><br><br>
+                        <input class="button" type="button" onclick="location.href = 'gebruikeraanpassen.jsp'" value="gebruiker aanpassen"><br><br>
+                        <input class="button" type="button" onclick="location.href = 'gebruikerdeleten.jsp'" value="gebruiker verwijderen"><br><br>
+                        <input class="button" type="submit" value="Back" onclick="location.href = '../startpagina.html'">
+                    </td>                
+                </tr>                                   
+            </table>
+        </div>
     </body>
 </html>

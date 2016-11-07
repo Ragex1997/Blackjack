@@ -70,5 +70,46 @@ public class UserDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        
+    }
+    
+    public static ResultSet getUsers(){
+        String query = "SELECT nickname FROM user";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+        ResultSet rs = null;
+        PreparedStatement stmt = null;
+        try {
+            stmt = con.prepareStatement(query);
+            rs = stmt.executeQuery();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return rs;
+    }
+    
+    public static void deleteUser(String nickName) {
+        String query = "Delete from user where nickname = '" + nickName + "'";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+    }
+    
+    public static void updateUser(String nickName, int balance, int iconid, String email, String password) {
+        String query = "UPDATE user SET balance = " + balance + " where user.nickname = '" + nickName + "'";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        try {
+            Statement stmt = con.createStatement();
+            stmt.executeUpdate(query);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
     }
 }
