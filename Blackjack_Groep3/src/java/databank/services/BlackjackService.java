@@ -19,7 +19,9 @@ public class BlackjackService {
         return Conversie.convertResultsetToList(BlackjackDAO.selectUsers("user", 0, "nickname"));
     }
     
-    public List<String>editUsers(){
-        return Conversie.convertResultsetToList(BlackjackDAO.editUsers("user",0,""));
-    }
+//    public List<String>editUserName(){
+//        return Conversie.convertResultsetToList(BlackjackDAO.editUserName(0,0));
+//    }
+    
+    
 }

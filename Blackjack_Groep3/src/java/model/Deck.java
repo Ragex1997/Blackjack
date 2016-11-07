@@ -65,9 +65,4 @@ public class Deck {
     private void removeCard(Card card) {
         this.cards.remove(card);
     }
-
-    public void addCard(Card card) {
-        this.cards.add(card);
-    }
-
 }

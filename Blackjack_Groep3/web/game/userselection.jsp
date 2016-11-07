@@ -69,10 +69,15 @@
                     <td><button type="button" name="reset_btn" onclick="window.location = '/Blackjack_Groep3/ResetChoiceServlet';">Reset</button></td>
                     <td><input type="submit" name="adduser_sub" value="Add user"></td>
                 </tr>
-            </table>
-                    <button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';" <%if (!selected.equals("yes")) {
+                <tr>
+                    <td><button type="button" name="play_btn" onclick="window.location = '/Blackjack_Groep3/PlayGameServlet';" <%if (!selected.equals("yes")) {
                                 out.print("disabled");
-                            }%>>Play</button>
+                            }%>>Play</button></td>
+                    <td><button type="button" name="home_btn" onclick="window.location = '/Blackjack_Groep3/startpagina.html';">Home</button></td>
+                
+                </tr>
+            </table>
+                    
         </form>
 
 

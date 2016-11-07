@@ -14,7 +14,7 @@
     <body>
         <link rel="stylesheet" href="Opmaak.css" type="text/css" />
         <h1>History actions</h1>
-        
+        <table>
             <tr>
                 <th></th>
                 <th>Dealer</th>
@@ -28,7 +28,7 @@
                 <td><%out.println("playerEindstand");%></td>
                 <td><%out.println("resultaat");%></td>
             </tr>}
-        
+        </table>
             <input class="button" type="submit" value="Back" onclick="location.href='history.jsp'">
     </body>
 </html>
