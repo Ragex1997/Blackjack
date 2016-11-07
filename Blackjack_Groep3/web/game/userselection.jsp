@@ -47,7 +47,7 @@
                                     users = (List<User>) session.getAttribute("usersChoice");
                                 } else {
                                     UserService persoonService = new UserService();
-                                    users = (List) persoonService.getListOfUsers();
+                                    users = (List) persoonService.getListOfUsers(true);
 
                                 }
 

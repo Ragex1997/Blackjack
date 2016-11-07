@@ -16,9 +16,14 @@ import model.User;
  */
 public class UserService {
     
-    public List<User> getListOfUsers(){
+    /**
+     * Geeft de lijst van alle users terug met headUsers als deze ingelogd is
+     * @param isHeadUser Geef True mee als de headuser is ingelogd anders false
+     * @return 
+     */
+    public List<User> getListOfUsers(boolean isHeadUser){
         
-        List<User>users = Conversie.convertResultSetToListOfUsers(UserDAO.getAllDataUsers());
+        List<User>users = Conversie.convertResultSetToListOfUsers(UserDAO.getAllDataUsers(isHeadUser));
         
         return users;
     }
