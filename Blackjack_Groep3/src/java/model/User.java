@@ -82,7 +82,7 @@ public class User {
     }
 
     public void addCard(Card card) {
-        this.getHand().addCard(card);
+        this.hand.addCard(card);
     }
 
 }

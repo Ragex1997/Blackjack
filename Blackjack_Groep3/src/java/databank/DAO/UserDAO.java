@@ -24,8 +24,14 @@ public class UserDAO {
     public UserDAO() {
     }
 
-    public static ResultSet getAllDataUsers() {
-        String query = "SELECT * FROM user";
+    public static ResultSet getAllDataUsers(Boolean isHeaduser) {
+        String query = "";
+        if(isHeaduser){
+            query = "SELECT * FROM user";
+        }else{
+            query = "SELECT * FROM user WHERE isHeadUser NOT LIKE '1'";
+        }
+
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
         ResultSet rs = null;
         PreparedStatement stmt = null;

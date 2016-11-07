@@ -47,7 +47,6 @@ public class PlayAgainServlet extends HttpServlet {
             for(User u : users){
                 u.setHand(new Hand());
                 u.setGameStatus(null);
-                u.setBet(1);
             }
             
             session = request.getSession();

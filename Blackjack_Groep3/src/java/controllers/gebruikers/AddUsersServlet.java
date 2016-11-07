@@ -57,7 +57,7 @@ public class AddUsersServlet extends HttpServlet {
                 usersForGame.add(userService.getUserByNickName(nickName));
             }
 
-            List<User> usersChoice = userService.getListOfUsers();
+            List<User> usersChoice = userService.getListOfUsers(true);
 
             //Het verwijderen van de users die al geselecteerd zijn
             //Om een of andere reden werkte het niet om die met de LIST.removeAll(); methode te doen?
