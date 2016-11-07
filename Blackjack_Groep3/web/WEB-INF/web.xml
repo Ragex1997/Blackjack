@@ -118,7 +118,7 @@
         <web-resource-collection>
             <web-resource-name>admins</web-resource-name>
             <description/>
-            <url-pattern>/gebruikers/gebruikerview.jsp</url-pattern>
+            <url-pattern>/gebruikers/gebruikeraanpassen.jsp</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

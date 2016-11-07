@@ -12,6 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>gebruiker bekijken</h1>
+        <h1>gebruiker aanpassen</h1>
     </body>
 </html>
