@@ -114,7 +114,6 @@ public class UserDAO {
     }
     
     public static void insertUser(String iconid, String nickname, int balance, int isadmin, String email, String password) {
-        //INSERT INTO `user` (`id`, `Iconid`, `nickname`, `balance`, `timePlayed`, `isHeadUser`, `email`, `password`) VALUES ('9', '54', 'feddex', '100000', '00:00:00', '1', 'xander-gh@telenet.be', 'Killroy1006');
         String query = "insert into `user` (`id`, `Iconid`, `nickname`, `balance`, `timePlayed`, `isHeadUser`, `email`, `password`) VALUES ('"+iconid+"', '"+nickname+"', '"+balance+"', '"+isadmin+"', '"+email+"', '"+password+"');";
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
 

@@ -36,6 +36,22 @@
         <servlet-name>Logout</servlet-name>
         <servlet-class>controllers.gebruikers.Logout</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>gebruikertoevoegenServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.GebruikerToevoegenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GebruikerupdatenServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.GebruikerUpdatenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GebruikerVerwijderenServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.GebruikerVerwijderenServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GebruikerSelecterenServlet</servlet-name>
+        <servlet-class>controllers.gebruikers.GebruikerSelecterenServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AddUsersServlet</servlet-name>
         <url-pattern>/AddUsersServlet</url-pattern>
@@ -63,6 +79,22 @@
     <servlet-mapping>
         <servlet-name>Logout</servlet-name>
         <url-pattern>/Logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>gebruikertoevoegenServlet</servlet-name>
+        <url-pattern>/gebruikertoevoegenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GebruikerupdatenServlet</servlet-name>
+        <url-pattern>/GebruikerupdatenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GebruikerVerwijderenServlet</servlet-name>
+        <url-pattern>/GebruikerVerwijderenServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GebruikerSelecterenServlet</servlet-name>
+        <url-pattern>/GebruikerSelecterenServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
