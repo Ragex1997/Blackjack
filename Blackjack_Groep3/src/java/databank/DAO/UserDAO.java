@@ -126,4 +126,21 @@ public class UserDAO {
         
     }
     
+    public static void InsertGameUserData(int userId, int gameId, int bet, String status){
+        String query = "insert into game_user(userid, gameid, bet, status) values(?, ?, ?, ?)";
+        Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);
+
+        try {
+            PreparedStatement stmt = con.prepareStatement(query);
+            stmt.setInt(1, userId);
+            stmt.setInt(2, gameId);
+            stmt.setInt(3, bet);
+            stmt.setString(4, status);
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }

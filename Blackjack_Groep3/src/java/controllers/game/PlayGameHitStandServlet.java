@@ -5,6 +5,7 @@
  */
 package controllers.game;
 
+import databank.services.GameService;
 import databank.services.UserService;
 import static enums.HandStatus.BUSTED;
 import java.io.IOException;
@@ -38,60 +39,65 @@ public class PlayGameHitStandServlet extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-
+            
             HttpSession session = request.getSession();
             Game game = (Game) session.getAttribute("game");
-
+            
             String nickname = request.getParameter("user");
             String action = request.getParameter("action");
             int userturn = (Integer) session.getAttribute("userturn");
-
+            
             User user = game.getUsers().get(userturn);
-
+            
             if (action.equals("hit")) {
-
+                
                 game.playerHit(user);
-
+                
                 if (userturn + 1 < game.getUsers().size() && user.getHand().getStatus() == BUSTED) {
                     ++userturn;
                     session.setAttribute("userturn", userturn);
-
+                    
                 } else if (user.getHand().getStatus() == BUSTED) {
-
+                    
                     game.getDealer().getHand().setCardVisible(1);
                     game.dealersTurn();
                     game.evaluateGame();
-
+                    
                     UserService userService = new UserService();
-
+                    
                     for (User u : game.getUsers()) {
                         userService.updateUserBalance(u);
                     }
                     session.setAttribute("userturn", 10);
                 }
-
+                
             } else if (action.equals("stand")) {
-
+                
                 game.playerStand(user);
-
+                
                 if (userturn + 1 < game.getUsers().size()) {
                     ++userturn;
                     session.setAttribute("userturn", userturn);
                 } else {
-
+                    
                     game.getDealer().getHand().setCardVisible(1);
-                    game.dealersTurn();
-                    game.evaluateGame();
-
+                    game.dealersTurn(); //Dealer gaat hitten of standen
+                    game.evaluateGame(); //Vegelijkt alle kaarten van de spelers met die van de Dealer
+                    //En de beloningen worden uitgedeeld
+                    
+                    GameService gameService = new GameService();
+                    gameService.insertGame(game);
+                    
                     UserService userService = new UserService();
-
+                    
                     for (User u : game.getUsers()) {
                         userService.updateUserBalance(u);
+                        userService.insertToGameUser(u);
                     }
-
+                    
                     session.setAttribute("userturn", 10);
                 }
-
+                
             } else {
                 out.print("ERROR");
             }
@@ -117,7 +123,7 @@ public class PlayGameHitStandServlet extends HttpServlet {
                     view.forward(request, response);
                     break;
             }
-
+            
         }
     }
 

@@ -20,6 +20,18 @@ import model.User;
  * @author Julie
  */
 public class Conversie {
+    
+    public static int convertResultSetToInt(ResultSet rs, String rowName) {
+        int result = 0;
+        try {
+            while (rs.next()) {
+                result = Integer.parseInt(rs.getString("max(" + rowName + ")"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result;
+    }
 
     public static List<String> convertResultsetToList(ResultSet rs) {
         List lijst = new ArrayList();
@@ -114,6 +126,20 @@ public class Conversie {
             e.printStackTrace();
         }
         return user;
+    }
+    public static int convertResultSetToId(ResultSet rs) {
+
+        int id = 0;
+
+        try {
+            while (rs.next()) {
+                id = Integer.parseInt(rs.getString("id"));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return id;
     }
     
     //date van spel in database steken
