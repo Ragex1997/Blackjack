@@ -45,7 +45,7 @@ public class GebruikerToevoegenServlet extends HttpServlet {
         
         accser.insertuser(iconid, nickname, balance, admin, email, password);
         
-        RequestDispatcher view = request.getRequestDispatcher("../gebruikers/accountbeheer.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/gebruikers/accountbeheer.jsp");
 
         view.forward(request, response);
     }

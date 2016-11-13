@@ -40,7 +40,7 @@ public class GebruikerVerwijderenServlet extends HttpServlet {
         
         accser.deleteUser(nickname);
         
-        RequestDispatcher view = request.getRequestDispatcher("../gebruikers/accountbeheer.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/gebruikers/accountbeheer.jsp");
 
         view.forward(request, response);
         

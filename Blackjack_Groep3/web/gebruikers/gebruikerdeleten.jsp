@@ -9,13 +9,15 @@
 <%@page import="databank.services.AccountbeheerService"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html class="userdelete">
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
     </head>
     <body>
+        <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
         <h1>Gebruiker Verwijderen</h1>
+        <div align="center">
         <form action="/Blackjack_Groep3/GebruikerVerwijderenServlet" method="post">
             <table border="1">
                 <tr>
@@ -50,5 +52,6 @@
             </table>
 
         </form>
+        </div>
     </body>
 </html>

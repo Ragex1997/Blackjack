@@ -46,7 +46,7 @@ public class GebruikerUpdatenServlet extends HttpServlet {
         
         accser.updateUser(nickname, nicknamenew, balance, admin, email, password);
         
-        RequestDispatcher view = request.getRequestDispatcher("../gebruikers/accountbeheer.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/gebruikers/accountbeheer.jsp");
 
         view.forward(request, response);
         
