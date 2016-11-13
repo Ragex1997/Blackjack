@@ -18,40 +18,40 @@
         <link rel="stylesheet" href="../Opmaak.css" type="text/css" />
         <h1>gebruiker Kiezen</h1>
         <div align="center">
-        <form action="/Blackjack_Groep3/GebruikerSelecterenServlet" method="post">
-            <table border="1">
-                <tr>
-                    <td>Select user</td><td>
+            <form action="/Blackjack_Groep3/GebruikerSelecterenServlet" method="post">
+                <table border="1">
+                    <tr>
+                        <td>Select user</td><td>
 
-                        <select name="users">
-                            <%
+                            <select name="users">
+                                <%
 
-                                AccountbeheerService accser = new AccountbeheerService();
+                                    AccountbeheerService accser = new AccountbeheerService();
 
-                                List<String> result = accser.getusers();
-                                
-                                        
-                                Iterator it = result.iterator();
-                                while (it.hasNext()) {
-                                    out.print("<option>"+ it.next()+"</option>");
-                                }
-                              
+                                    List<String> result = accser.getusers();
 
-                            %>
-
-                        </select>
+                                    Iterator it = result.iterator();
+                                    while (it.hasNext()) {
+                                        out.print("<option>" + it.next() + "</option>");
+                                    }
 
 
-                    </td>
+                                %>
 
-                </tr>
-                <tr>
-                    <td><input type="submit" name="selectuser" value="gebruiker aanpassen"></td>
-                </tr>
+                            </select>
 
-            </table>
 
-        </form>
+                        </td>
+
+                    </tr>
+                    <tr>
+                        <td><input type="submit" name="selectuser" value="gebruiker aanpassen"></td>
+                    </tr>
+
+                </table>
+
+            </form>
         </div>
+        <BR><input class="button" type="submit" value="Back" onclick="location.href = 'accountbeheer.jsp'">
     </body>
 </html>

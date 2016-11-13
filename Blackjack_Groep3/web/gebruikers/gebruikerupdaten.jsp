@@ -60,5 +60,6 @@
                 <input class="button" type="submit" value="Opslaan" />
             </form>
         </div>
+        <BR><input class="button" type="submit" value="Back" onclick="location.href='accountbeheer.jsp'">
     </body>
 </html>

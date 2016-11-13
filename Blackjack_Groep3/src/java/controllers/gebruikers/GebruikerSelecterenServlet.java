@@ -39,7 +39,7 @@ public class GebruikerSelecterenServlet extends HttpServlet {
         
         request.setAttribute("usernickname",nickname);
         
-        RequestDispatcher view = request.getRequestDispatcher("/Blackjack_Groep3/gebruikerupdaten.jsp");
+        RequestDispatcher view = request.getRequestDispatcher("/gebruikers/gebruikerupdaten.jsp");
         
         view.forward(request, response);
     }
