@@ -9,6 +9,7 @@ package controllers.gebruikers;
 import databank.services.AccountbeheerService;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,6 +44,10 @@ public class GebruikerToevoegenServlet extends HttpServlet {
         AccountbeheerService accser = new AccountbeheerService();
         
         accser.insertuser(iconid, nickname, balance, admin, email, password);
+        
+        RequestDispatcher view = request.getRequestDispatcher("/gebruikers/accountbeheer.jsp");
+
+        view.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

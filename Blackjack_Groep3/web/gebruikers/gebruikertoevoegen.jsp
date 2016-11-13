@@ -17,7 +17,7 @@
         <h1>voeg een gebruiker toe</h1>   
         <br>                                
             <div align="center">                
-            <form action="GebruikerToevoegenServlet" method="post">
+            <form action="/Blackjack_Groep3/GebruikerToevoegenServlet" method="post">
                 <br>
                 <br>
                 <div class = "setcolor">
