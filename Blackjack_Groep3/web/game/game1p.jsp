@@ -111,6 +111,7 @@
 
             <%
                 //controleren of de Playbutten moet worden verborgen of niet
+                //Deze knop wordt alleen maar getoont als men de bets moet plaatsen en dat gebeurt op turn 0
 
                 String visibility = "";
                 if (turn != 0) {
@@ -130,6 +131,7 @@
 
         <%
             //vragen of de speler wil hitten of standen zichtbaar maken?
+            //Deze wordt getoont als de spelers moeten hitten of standen
 
             visibility = "";
             if (turn < 1 || userturn == 10) {
@@ -157,6 +159,7 @@
         <%
 
             //vragen of de speler opnieuw wil spelen of met een andere selectie van spelers?
+            //Deze wordt op het einde van het spel getoond (userturn = 10)
             visibility = "";
             if (userturn != 10) {
                 visibility = "hidden";

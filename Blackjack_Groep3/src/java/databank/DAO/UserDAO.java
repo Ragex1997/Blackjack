@@ -29,7 +29,7 @@ public class UserDAO {
         if(isHeaduser){
             query = "SELECT * FROM user";
         }else{
-            query = "SELECT * FROM user WHERE isHeadUser NOT LIKE '1'";
+            query = "SELECT * FROM user WHERE id != (SELECT id from headuser)";
         }
 
         Connection con = DatabaseSingleton.getDatabaseSingleton().getConnection(true);

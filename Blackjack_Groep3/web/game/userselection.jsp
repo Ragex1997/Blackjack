@@ -41,13 +41,18 @@
 
                                 }
                                 List<User> users = null;
+                                //We kijken of je al een gebruiker geselecteerd had
                                 if (selected.equals("yes")) {
-
+                                    //Zo ja halen we een lijst op van gebruikers waar de gene die je al hebt geselecteerd 
+                                    //Niet meer inzitten
                                     users = (List<User>) session.getAttribute("usersChoice");
+                                    
                                 } else {
+                                    //Zo niet halen we ze op uit de database om ze te selecteren 
+                                    //Op basis van als je aangemeld bent als admin of niet
                                     UserService persoonService = new UserService();
                                     if (request.getUserPrincipal() == null) {
-                                        users = (List) persoonService.getListOfUsers(true);
+                                        users = (List) persoonService.getListOfUsers(false);
                                     } else {
                                         users = (List) persoonService.getListOfUsers(true);
                                     }
@@ -89,6 +94,7 @@
 
             <%
                 //Tonen van de al geselecteerde users
+                //Als er al geselecteerde gebruikers zijn
                 if (selected.equals("yes")) {
 
                     List<User> usersForGame = (List<User>) session.getAttribute("usersForGame");

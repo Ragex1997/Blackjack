@@ -51,6 +51,7 @@ public class PlayGameServlet extends HttpServlet {
                 session.setAttribute("turn", turn);
             }
 
+            //Turn 0 is het starten van het spel de spelers inladen en het Game object aanmaken
             if (turn == 0) {
 
                 if (game == null) {
@@ -58,7 +59,7 @@ public class PlayGameServlet extends HttpServlet {
                     game = new Game(users);
                     session.setAttribute("game", game);
                 }
-
+                //Turn 1 is het plaatsen van de inzet voor iedere speler
             } else if (turn == 1) {
 
                 List<User> users = game.getUsers();
@@ -86,9 +87,13 @@ public class PlayGameServlet extends HttpServlet {
                 game.getDealer().getHand().setCardInvisible(1);
             }
 
+            //Turn grooter dan 1 is voor na dat iedereen zijn inzet heeft gedaan dan kan iedereen hit of stand kiezen
+            //En deze wordt behandelt door een andere servlet "PlayGameHitStandServlet"
             if (turn > 1) {
                 response.sendRedirect("PlayGameHitStandServlet");
+                
             } else {
+                //Als turn niet groter is dan 1 dan wordt gewoon de view geladen
 
                 //Ik heb voor iedere mogelijkheid van de hoeveelheid spelers een jsp pagina gemaakt
                 //Want anders ging ik moeten mijn html code in scriptlet code zetten wat wss nog onoverzichtelijker zou zijn
